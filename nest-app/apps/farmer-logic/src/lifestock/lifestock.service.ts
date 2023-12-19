@@ -1,14 +1,16 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ILifestock } from './ILifestock';
+import { DbService } from '@app/sharedlogic/db/db.service';
 
 @Injectable()
 export class LifestockService implements ILifestock {
   logger: Logger;
-  constructor() {
-    this.logger = new Logger('LifestockService', {
+  constructor(private readonly db: DbService) {
+    this.logger = new Logger('LifestockService Request', {
       timestamp: true,
     });
   }
+
   //TODO
   async CreateLifestock() {
     try {
@@ -17,246 +19,281 @@ export class LifestockService implements ILifestock {
     }
   }
   //TODO
-  async FindByid(data: Map<String, String>) {
+  async FindByid(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindBystatus(data: Map<String, String>) {
+  async FindBystatus(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindBygender(data: Map<String, String>) {
+  async FindBygender(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindByage(data: Map<String, String>) {
+  async FindByage(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindByTPMethodOfPossesionId(data: Map<String, String>) {
+  async FindByTPMethodOfPossesionId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindBytPQrCodeId(data: Map<String, String>) {
+  async FindBytPQrCodeId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindByTPReportId(data: Map<String, String>) {
+  async FindByTPReportId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindByTPVariantId(data: Map<String, String>) {
+  async FindByTPVariantId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindByTPLifeStockTypeId(data: Map<String, String>) {
+  async FindByTPLifeStockTypeId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindByTPBreedId(data: Map<String, String>) {
+  async FindByTPBreedId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindBytPFarmerId(data: Map<String, String>) {
+  async FindBytPFarmerId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindBybreed(data: Map<String, String>) {
+  async FindBybreed(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindBytype(data: Map<String, String>) {
+  async FindBytype(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindBymop(data: Map<String, String>) {
+  async FindBymop(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindByReport(data: Map<String, String>) {
+  async FindByReport(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindByvariant(data: Map<String, String>) {
+  async FindByvariant(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindByTPFarmer(data: Map<String, String>) {
+  async FindByTPFarmer(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async FindByqrcode(data: Map<String, String>) {
+  async FindByqrcode(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async Updatestatus(data: Map<String, String>) {
+  async Updatestatus(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async Updategender(data: Map<String, String>) {
+  async Updategender(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async Updateage(data: Map<String, String>) {
+  async Updateage(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async UpdateTPMethodOfPossesionId(data: Map<String, String>) {
+  async UpdateTPMethodOfPossesionId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async UpdatetPQrCodeId(data: Map<String, String>) {
+  async UpdatetPQrCodeId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async UpdateTPReportId(data: Map<String, String>) {
+  async UpdateTPReportId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async UpdateTPVariantId(data: Map<String, String>) {
+  async UpdateTPVariantId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async UpdateTPLifeStockTypeId(data: Map<String, String>) {
+  async UpdateTPLifeStockTypeId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async UpdateTPBreedId(data: Map<String, String>) {
+  async UpdateTPBreedId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async UpdatetPFarmerId(data: Map<String, String>) {
+  async UpdatetPFarmerId(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async Updatebreed(data: Map<String, String>) {
+  async Updatebreed(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async Updatetype(data: Map<String, String>) {
+  async Updatetype(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async Updatemop(data: Map<String, String>) {
+  async Updatemop(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async UpdateReport(data: Map<String, String>) {
+  async UpdateReport(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async Updatevariant(data: Map<String, String>) {
+  async Updatevariant(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async UpdateTPFarmer(data: Map<String, String>) {
+  async UpdateTPFarmer(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
   //TODO
-  async Updateqrcode(data: Map<String, String>) {
+  async Updateqrcode(data: Map<String, any>) {
     try {
+      this.logger.log(data);
     } catch (error) {
       throw new Error('Method not implemented.');
     }

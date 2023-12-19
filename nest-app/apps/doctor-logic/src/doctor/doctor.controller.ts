@@ -1,6 +1,7 @@
-import { Controller, Logger, Post } from '@nestjs/common';
+import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { IDoctor } from './IDoctor';
 import { DoctorService } from './doctor.service';
+import { TPDoctor } from '@prisma/client';
 
 @Controller('doctor')
 export class DoctorController implements IDoctor {
@@ -9,94 +10,78 @@ export class DoctorController implements IDoctor {
    */
   constructor(private readonly doctor: DoctorService) {}
   logger: Logger;
-  //TODO
-  @Post("CreateDoctor")
+  @Post('CreateDoctor')
   CreateDoctor() {
-    throw new Error('Method not implemented.');
+    return this.doctor.CreateDoctor();
   }
-  //TODO
-  @Post("Updatefirst_name")
-  Updatefirst_name(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('Updatefirst_name')
+  Updatefirst_name(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.Updatefirst_name(data);
   }
-  //TODO
-  @Post("Updatelast_name")
-  Updatelast_name(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('Updatelast_name')
+  Updatelast_name(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.Updatelast_name(data);
   }
-  //TODO
-  @Post("Updateemail")
-  Updateemail(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('Updateemail')
+  Updateemail(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.Updateemail(data);
   }
-  //TODO
-  @Post("Updatenumber")
-  Updatenumber(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('Updatenumber')
+  Updatenumber(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.Updatenumber(data);
   }
-  //TODO
-  @Post("Updatepassword")
-  Updatepassword(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('Updatepassword')
+  Updatepassword(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.Updatepassword(data);
   }
-  //TODO
-  @Post("Updatenotifications")
-  Updatenotifications(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('Updatenotifications')
+  Updatenotifications(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPDoctor> {
+    return this.doctor.Updatenotifications(data);
   }
-  //TODO
-  @Post("Updatereports")
-  Updatereports(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('Updatereports')
+  Updatereports(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.Updatereports(data);
   }
-  //TODO
-  @Post("Updaterequests")
-  Updaterequests(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('Updaterequests')
+  Updaterequests(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.Updaterequests(data);
   }
-  //TODO
-  @Post("FindByid")
-  FindByid(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('FindByid')
+  FindByid(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.FindByid(data);
   }
-  //TODO
-  @Post("FindByfirst_name")
-  FindByfirst_name(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('FindByfirst_name')
+  FindByfirst_name(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.FindByfirst_name(data);
   }
-  //TODO
-  @Post("FindBylast_name")
-  FindBylast_name(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('FindBylast_name')
+  FindBylast_name(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.FindBylast_name(data);
   }
-  //TODO
-  @Post("FindByemail")
-  FindByemail(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('FindByemail')
+  FindByemail(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.FindByemail(data);
   }
-  //TODO
-  @Post("FindBynumber")
-  FindBynumber(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('FindBynumber')
+  FindBynumber(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.FindBynumber(data);
   }
-  //TODO
-  @Post("FindBycreatedAt")
-  FindBycreatedAt(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('FindBycreatedAt')
+  FindBycreatedAt(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.FindBycreatedAt(data);
   }
-  //TODO
-  @Post("FindByupdatedAt")
-  FindByupdatedAt(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('FindByupdatedAt')
+  FindByupdatedAt(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.FindByupdatedAt(data);
   }
-  //TODO
-  @Post("FindByreports")
-  FindByreports(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('FindByreports')
+  FindByreports(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.FindByreports(data);
   }
-  //TODO
-  @Post("FindByrequests")
-  FindByrequests(data: Map<String, any>) {
-    throw new Error('Method not implemented.');
+  @Post('FindByrequests')
+  FindByrequests(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+    return this.doctor.FindByrequests(data);
   }
 }

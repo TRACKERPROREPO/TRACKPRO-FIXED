@@ -1,110 +1,126 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ITransfer } from './ITransfer';
+import { TPTransfer } from '@prisma/client';
+import { DbService } from '@app/sharedlogic/db/db.service';
 
 @Injectable()
 export class TransferService implements ITransfer {
   logger: Logger;
-  constructor() {
-    this.logger = new Logger('TransferService', {
+  constructor(private readonly db: DbService) {
+    this.logger = new Logger('TransferService Request', {
       timestamp: true,
     });
   }
-  //TODO
-  async CreateTransfer() {
+  async CreateTransfer(data: Map<String, any>): Promise<void | TPTransfer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async FindByid() {
+  async FindByid(data: Map<String, any>): Promise<void | TPTransfer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async FindBystate() {
+  async FindBystate(
+    data: Map<String, any>,
+  ): Promise<void | TPTransfer | TPTransfer[]> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async FindByTPTransferToId() {
+  async FindByTPTransferToId(
+    data: Map<String, any>,
+  ): Promise<void | TPTransfer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async FindByTPTranferFromId() {
+  async FindByTPTranferFromId(
+    data: Map<String, any>,
+  ): Promise<void | TPTransfer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async FindBycreatedAt() {
+  async FindBycreatedAt(
+    data: Map<String, any>,
+  ): Promise<void | TPTransfer | TPTransfer[]> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async FindByupdatedAt() {
+  async FindByupdatedAt(
+    data: Map<String, any>,
+  ): Promise<void | TPTransfer | TPTransfer[]> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async FindByfrom() {
+  async FindByfrom(data: Map<String, any>): Promise<void | TPTransfer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async FindByto() {
+  async FindByto(data: Map<String, any>): Promise<void | TPTransfer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async Updatestate() {
+  async Updatestate(data: Map<String, any>): Promise<void | TPTransfer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async UpdateTPTransferToId() {
+  async UpdateTPTransferToId(
+    data: Map<String, any>,
+  ): Promise<void | TPTransfer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async UpdateTPTranferFromId() {
+  async UpdateTPTranferFromId(
+    data: Map<String, any>,
+  ): Promise<void | TPTransfer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async Updatefrom() {
+  async Updatefrom(data: Map<String, any>): Promise<void | TPTransfer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async Updateto() {
+  async Updateto(data: Map<String, any>): Promise<void | TPTransfer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
 }

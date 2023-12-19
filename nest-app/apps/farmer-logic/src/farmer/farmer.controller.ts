@@ -1,4 +1,4 @@
-import { Body, Controller, Logger, Post } from '@nestjs/common';
+import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { IFarmer } from './IFarmer';
 import { FarmerService } from './farmer.service';
 
@@ -12,161 +12,101 @@ export class FarmerController implements IFarmer {
   //TODO
   @Post('CreateFarmer')
   async CreateFarmer() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+    return this.farmer.CreateFarmer();
   }
   //TODO
   @Post('findByid')
-  async findByid(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async findByid(@Query() data: Map<String, any>) {
+    return this.farmer.findByid(data);
   }
   //TODO
   @Post('findByfirst_name')
-  async findByfirst_name(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async findByfirst_name(@Query() data: Map<String, any>) {
+    return this.farmer.findByfirst_name(data);
   }
   //TODO
   @Post('findBylast_name')
-  async findBylast_name(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async findBylast_name(@Query() data: Map<String, any>) {
+    return this.farmer.findBylast_name(data);
   }
   //TODO
   @Post('findByemail')
-  async findByemail(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async findByemail(@Query() data: Map<String, any>) {
+    return this.farmer.findByemail(data);
   }
   //TODO
   @Post('findBynumber')
-  async findBynumber(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async findBynumber(@Query() data: Map<String, any>) {
+    return this.farmer.findBynumber(data);
   }
   //TODO
   @Post('findBylifestock')
-  async findBylifestock(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async findBylifestock(@Query() data: Map<String, any>) {
+    return this.farmer.findBylifestock(data);
   }
   //TODO
   @Post('findByTPRequester')
-  async findByTPRequester(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async findByTPRequester(@Query() data: Map<String, any>) {
+    return this.farmer.findByTPRequester(data);
   }
   //TODO
   @Post('findByTPTranferFrom')
-  async findByTPTranferFrom(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async findByTPTranferFrom(@Query() data: Map<String, any>) {
+    return this.farmer.findByTPTranferFrom(data);
   }
   //TODO
   @Post('findByTPTransferTo')
-  async findByTPTransferTo(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async findByTPTransferTo(@Query() data: Map<String, any>) {
+    return this.farmer.findByTPTransferTo(data);
   }
   //TODO
   @Post('Updatefirst_name')
-  async Updatefirst_name(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async Updatefirst_name(@Query() data: Map<String, any>) {
+    return this.farmer.Updatefirst_name(data);
   }
   //TODO
   @Post('Updatelast_name')
-  async Updatelast_name(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async Updatelast_name(@Query() data: Map<String, any>) {
+    return this.farmer.Updatelast_name(data);
   }
   //TODO
   @Post('Updateemail')
-  async Updateemail(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async Updateemail(@Query() data: Map<String, any>) {
+    return this.farmer.Updateemail(data);
   }
   //TODO
   @Post('Updatenumber')
-  async Updatenumber(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async Updatenumber(@Query() data: Map<String, any>) {
+    return this.farmer.Updatenumber(data);
   }
   //TODO
   @Post('Updatepassword')
-  async Updatepassword(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async Updatepassword(@Query() data: Map<String, any>) {
+    return this.farmer.Updatepassword(data);
   }
   //TODO
   @Post('Updatelifestock')
-  async Updatelifestock(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async Updatelifestock(@Query() data: Map<String, any>) {
+    return this.farmer.Updatelifestock(data);
   }
   //TODO
   @Post('Updatenotifications')
-  async Updatenotifications(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async Updatenotifications(@Query() data: Map<String, any>) {
+    return this.farmer.Updatenotifications(data);
   }
   //TODO
   @Post('UpdateTPRequester')
-  async UpdateTPRequester(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async UpdateTPRequester(@Query() data: Map<String, any>) {
+    return this.farmer.UpdateTPRequester(data);
   }
   //TODO
   @Post('UpdateTPTranferFrom')
-  async UpdateTPTranferFrom(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async UpdateTPTranferFrom(@Query() data: Map<String, any>) {
+    return this.farmer.UpdateTPTranferFrom(data);
   }
   //TODO
   @Post('UpdateTPTransferTo')
-  async UpdateTPTransferTo(data: Map<String, any>) {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async UpdateTPTransferTo(@Query() data: Map<String, any>) {
+    return this.farmer.UpdateTPTransferTo(data);
   }
 }

@@ -10,7 +10,7 @@ export class LifeStockReportsService implements IReports {
    *
    */
   constructor(private readonly db: DbService) {
-    this.logger = new Logger('LifeStockReportsService', {
+    this.logger = new Logger('LifeStockReportsService Request', {
       timestamp: true,
     });
   }
@@ -19,7 +19,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -27,23 +27,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
-    }
-  }
-  //TODO
-  async UpdatecreatedAt(data: Map<String, any>): Promise<void | TPReport> {
-    try {
-      this.logger.log(data);
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
-  }
-  //TODO
-  async UpdateupdatedAt(data: Map<String, any>): Promise<void | TPReport> {
-    try {
-      this.logger.log(data);
-    } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -51,7 +35,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -59,7 +43,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -67,7 +51,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -75,7 +59,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODOasync
@@ -83,7 +67,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -91,7 +75,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -99,7 +83,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -107,7 +91,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -115,7 +99,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -123,7 +107,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -131,7 +115,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
   //TODO
@@ -139,7 +123,7 @@ export class LifeStockReportsService implements IReports {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
 }

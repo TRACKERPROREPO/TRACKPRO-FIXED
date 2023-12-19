@@ -3,18 +3,24 @@ import { TPTransfer } from '@prisma/client';
 
 export interface ITransfer {
   logger: Logger;
-  CreateTransfer(): Promise<TPTransfer | void>;
-  FindByid(): Promise<TPTransfer | void>;
-  FindBystate(): Promise<TPTransfer[] | TPTransfer | void>;
-  FindByTPTransferToId(): Promise<TPTransfer | void>;
-  FindByTPTranferFromId(): Promise<TPTransfer | void>;
-  FindBycreatedAt(): Promise<TPTransfer[] | TPTransfer | void>;
-  FindByupdatedAt(): Promise<TPTransfer[] | TPTransfer | void>;
-  FindByfrom(): Promise<TPTransfer | void>;
-  FindByto(): Promise<TPTransfer | void>;
-  Updatestate(): Promise<TPTransfer | void>;
-  UpdateTPTransferToId(): Promise<TPTransfer | void>;
-  UpdateTPTranferFromId(): Promise<TPTransfer | void>;
-  Updatefrom(): Promise<TPTransfer | void>;
-  Updateto(): Promise<TPTransfer | void>;
+  CreateTransfer(data: Map<String, any>): Promise<TPTransfer | void>;
+  FindByid(data: Map<String, any>): Promise<TPTransfer | void>;
+  FindBystate(
+    data: Map<String, any>,
+  ): Promise<TPTransfer[] | TPTransfer | void>;
+  FindByTPTransferToId(data: Map<String, any>): Promise<TPTransfer | void>;
+  FindByTPTranferFromId(data: Map<String, any>): Promise<TPTransfer | void>;
+  FindBycreatedAt(
+    data: Map<String, any>,
+  ): Promise<TPTransfer[] | TPTransfer | void>;
+  FindByupdatedAt(
+    data: Map<String, any>,
+  ): Promise<TPTransfer[] | TPTransfer | void>;
+  FindByfrom(data: Map<String, any>): Promise<TPTransfer | void>;
+  FindByto(data: Map<String, any>): Promise<TPTransfer | void>;
+  Updatestate(data: Map<String, any>): Promise<TPTransfer | void>;
+  UpdateTPTransferToId(data: Map<String, any>): Promise<TPTransfer | void>;
+  UpdateTPTranferFromId(data: Map<String, any>): Promise<TPTransfer | void>;
+  Updatefrom(data: Map<String, any>): Promise<TPTransfer | void>;
+  Updateto(data: Map<String, any>): Promise<TPTransfer | void>;
 }

@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { IDoctor } from './IDoctor';
 import { DbService } from '@app/sharedlogic/db/db.service';
+import { TPDoctor } from '@prisma/client';
 
 @Injectable()
 export class DoctorService implements IDoctor {
@@ -9,80 +10,152 @@ export class DoctorService implements IDoctor {
    *
    */
   constructor(private readonly db: DbService) {
-    this.logger = new Logger('DoctorService', {
+    this.logger = new Logger('DoctorService Request', {
       timestamp: true,
     });
   }
   // TODO
-  CreateDoctor() {
-    throw new Error('Method not implemented.');
+  async CreateDoctor() {
+    try {
+      // this.logger.log()
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  Updatefirst_name() {
-    throw new Error('Method not implemented.');
+  async Updatefirst_name(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  Updatelast_name() {
-    throw new Error('Method not implemented.');
+  async Updatelast_name(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  Updateemail() {
-    throw new Error('Method not implemented.');
+  async Updateemail(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  Updatenumber() {
-    throw new Error('Method not implemented.');
+  async Updatenumber(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  Updatepassword() {
-    throw new Error('Method not implemented.');
+  async Updatepassword(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  Updatenotifications() {
-    throw new Error('Method not implemented.');
+  async Updatenotifications(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  Updatereports() {
-    throw new Error('Method not implemented.');
+  async Updatereports(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  Updaterequests() {
-    throw new Error('Method not implemented.');
+  async Updaterequests(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  FindByid() {
-    throw new Error('Method not implemented.');
+  async FindByid(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  FindByfirst_name() {
-    throw new Error('Method not implemented.');
+  async FindByfirst_name(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  FindBylast_name() {
-    throw new Error('Method not implemented.');
+  async FindBylast_name(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  FindByemail() {
-    throw new Error('Method not implemented.');
+  async FindByemail(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  FindBynumber() {
-    throw new Error('Method not implemented.');
+  async FindBynumber(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  FindBycreatedAt() {
-    throw new Error('Method not implemented.');
+  async FindBycreatedAt(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  FindByupdatedAt() {
-    throw new Error('Method not implemented.');
+  async FindByupdatedAt(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  FindByreports() {
-    throw new Error('Method not implemented.');
+  async FindByreports(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
   // TODO
-  FindByrequests() {
-    throw new Error('Method not implemented.');
+  async FindByrequests(data: Map<String, any>): Promise<void | TPDoctor> {
+    try {
+      this.logger.log(data)
+    } catch (error) {
+      this.logger.error(error?.message);
+    }
   }
 }

@@ -1,6 +1,7 @@
-import { Controller, Logger, Post } from '@nestjs/common';
+import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { IQrcode } from './IQrcode';
 import { QrCodeService } from './qr-code.service';
+import { TPQrCode } from '@prisma/client';
 
 @Controller('qr-code')
 export class QrCodeController implements IQrcode {
@@ -9,92 +10,62 @@ export class QrCodeController implements IQrcode {
    */
   logger: Logger;
   constructor(private readonly qrcode: QrCodeService) {}
-  // TODO
   @Post('CreateQrcode')
-  async CreateQrcode() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async CreateQrcode(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPQrCode> {
+    return this.qrcode.CreateQrcode(data);
   }
-  // TODO
   @Post('Updateid')
-  async Updateid() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async Updateid(@Query() data: Map<String, any>): Promise<void | TPQrCode> {
+    return this.qrcode.Updateid(data);
   }
-  // TODO
   @Post('Updatelink')
-  async Updatelink() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async Updatelink(@Query() data: Map<String, any>): Promise<void | TPQrCode> {
+    return this.qrcode.Updatelink(data);
   }
-  // TODO
   @Post('UpdateTPLifeStock')
-  async UpdateTPLifeStock() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async UpdateTPLifeStock(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPQrCode> {
+    return this.qrcode.UpdateTPLifeStock(data);
   }
-  // TODO
   @Post('UpdateTPReport')
-  async UpdateTPReport() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async UpdateTPReport(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPQrCode> {
+    return this.qrcode.UpdateTPReport(data);
   }
-  // TODO
   @Post('FindByid')
-  async FindByid() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async FindByid(@Query() data: Map<String, any>): Promise<void | TPQrCode> {
+    return this.qrcode.FindByid(data);
   }
-  // TODO
   @Post('FindBylink')
-  async FindBylink() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async FindBylink(@Query() data: Map<String, any>): Promise<void | TPQrCode> {
+    return this.qrcode.FindBylink(data);
   }
-  // TODO
   @Post('FindBycreatedAt')
-  async FindBycreatedAt() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async FindBycreatedAt(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPQrCode> {
+    return this.qrcode.FindBycreatedAt(data);
   }
-  // TODO
   @Post('FindByupdatedAt')
-  async FindByupdatedAt() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async FindByupdatedAt(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPQrCode> {
+    return this.qrcode.FindByupdatedAt(data);
   }
-  // TODO
   @Post('FindByTPLifeStock')
-  async FindByTPLifeStock() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async FindByTPLifeStock(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPQrCode> {
+    return this.qrcode.FindByTPLifeStock(data);
   }
-  // TODO
   @Post('FindByTPReport')
-  async FindByTPReport() {
-    try {
-    } catch (error) {
-      throw new Error('Method not implemented.');
-    }
+  async FindByTPReport(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPQrCode> {
+    return this.qrcode.FindByTPReport(data);
   }
 }

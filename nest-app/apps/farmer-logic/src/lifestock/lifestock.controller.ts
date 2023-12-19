@@ -1,4 +1,4 @@
-import { Controller, Logger, Post } from '@nestjs/common';
+import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { ILifestock } from './ILifestock';
 import { LifestockService } from './lifestock.service';
 import { TPLifeStock } from '@prisma/client';
@@ -10,201 +10,252 @@ export class LifestockController implements ILifestock {
    */
   logger: Logger;
   constructor(private readonly lifestock: LifestockService) {}
-  // TODO
+
   @Post('CreateLifestock')
   async CreateLifestock(): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+    return this.lifestock.CreateLifestock();
   }
-  // TODO
+
   @Post('FindByid')
-  async FindByid(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindByid(@Query() data: Map<String, any>): Promise<void | TPLifeStock> {
+    return this.lifestock.FindByid(data);
   }
-  // TODO
+
   @Post('FindBystatus')
-  async FindBystatus(data: Map<String, any>): Promise<void | TPLifeStock[]> {
-    throw new Error('Method not implemented.');
+  async FindBystatus(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock[]> {
+    return this.lifestock.FindBystatus(data);
   }
-  // TODO
+
   @Post('FindBygender')
-  async FindBygender(data: Map<String, any>): Promise<void | TPLifeStock[]> {
-    throw new Error('Method not implemented.');
+  async FindBygender(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock[]> {
+    return this.lifestock.FindBygender(data);
   }
-  // TODO
+
   @Post('FindByage')
-  async FindByage(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindByage(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindByage(data);
   }
-  // TODO
+
   @Post('FindByTPMethodOfPossesionId')
   async FindByTPMethodOfPossesionId(
-    data: Map<String, any>,
+    @Query() data: Map<String, any>,
   ): Promise<void | TPLifeStock | TPLifeStock[]> {
-    throw new Error('Method not implemented.');
+    return this.lifestock.FindByTPMethodOfPossesionId(data);
   }
-  // TODO
+
   @Post('FindBytPQrCodeId')
-  async FindBytPQrCodeId(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindBytPQrCodeId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindBytPQrCodeId(data);
   }
-  // TODO
+
   @Post('FindByTPReportId')
-  async FindByTPReportId(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindByTPReportId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindByTPReportId(data);
   }
-  // TODO
+
   @Post('FindByTPVariantId')
-  async FindByTPVariantId(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindByTPVariantId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindByTPVariantId(data);
   }
-  // TODO
+
   @Post('FindByTPLifeStockTypeId')
   async FindByTPLifeStockTypeId(
-    data: Map<String, any>,
+    @Query() data: Map<String, any>,
   ): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+    return this.lifestock.FindByTPLifeStockTypeId(data);
   }
-  // TODO
+
   @Post('FindByTPBreedId')
-  async FindByTPBreedId(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindByTPBreedId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindByTPBreedId(data);
   }
-  // TODO
+
   @Post('FindBytPFarmerId')
-  async FindBytPFarmerId(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindBytPFarmerId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindBytPFarmerId(data);
   }
-  // TODO
+
   @Post('FindBybreed')
   async FindBybreed(
-    data: Map<String, any>,
+    @Query() data: Map<String, any>,
   ): Promise<void | TPLifeStock | TPLifeStock[]> {
-    throw new Error('Method not implemented.');
+    return this.lifestock.FindBybreed(data);
   }
-  // TODO
+
   @Post('FindBytype')
-  async FindBytype(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindBytype(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindBytype(data);
   }
-  // TODO
+
   @Post('FindBymop')
-  async FindBymop(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindBymop(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindBymop(data);
   }
-  // TODO
+
   @Post('FindByReport')
-  async FindByReport(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindByReport(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindByReport(data);
   }
-  // TODO
+
   @Post('FindByvariant')
-  async FindByvariant(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindByvariant(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindByvariant(data);
   }
-  // TODO
+
   @Post('FindByTPFarmer')
-  async FindByTPFarmer(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindByTPFarmer(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindByTPFarmer(data);
   }
-  // TODO
+
   @Post('FindByqrcode')
-  async FindByqrcode(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async FindByqrcode(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.FindByqrcode(data);
   }
-  // TODO
+
   @Post('Updatestatus')
-  async Updatestatus(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async Updatestatus(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.Updatestatus(data);
   }
-  // TODO
+
   @Post('Updategender')
-  async Updategender(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async Updategender(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.Updategender(data);
   }
-  // TODO
+
   @Post('Updateage')
-  async Updateage(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async Updateage(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.Updateage(data);
   }
-  // TODO
+
   @Post('UpdateTPMethodOfPossesionId')
   async UpdateTPMethodOfPossesionId(
-    data: Map<String, any>,
+    @Query() data: Map<String, any>,
   ): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+    return this.lifestock.UpdateTPMethodOfPossesionId(data);
   }
-  // TODO
+
   @Post('UpdatetPQrCodeId')
-  async UpdatetPQrCodeId(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async UpdatetPQrCodeId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.UpdatetPQrCodeId(data);
   }
-  // TODO
+
   @Post('UpdateTPReportId')
-  async UpdateTPReportId(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async UpdateTPReportId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.UpdateTPReportId(data);
   }
-  // TODO
+
   @Post('UpdateTPVariantId')
-  async UpdateTPVariantId(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async UpdateTPVariantId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.UpdateTPVariantId(data);
   }
-  // TODO
+
   @Post('UpdateTPLifeStockTypeId')
   async UpdateTPLifeStockTypeId(
-    data: Map<String, any>,
+    @Query() data: Map<String, any>,
   ): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+    return this.lifestock.UpdateTPLifeStockTypeId(data);
   }
-  // TODO
+
   @Post('UpdateTPBreedId')
-  async UpdateTPBreedId(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async UpdateTPBreedId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.UpdateTPBreedId(data);
   }
-  // TODO
+
   @Post('UpdatetPFarmerId')
-  async UpdatetPFarmerId(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async UpdatetPFarmerId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.UpdatetPFarmerId(data);
   }
-  // TODO
+
   @Post('Updatebreed')
   async Updatebreed(
-    data: Map<String, any>,
+    @Query() data: Map<String, any>,
   ): Promise<void | TPLifeStock | TPLifeStock[]> {
-    throw new Error('Method not implemented.');
+    return this.lifestock.Updatebreed(data);
   }
-  // TODO
+
   @Post('Updatetype')
   async Updatetype(
-    data: Map<String, any>,
+    @Query() data: Map<String, any>,
   ): Promise<void | TPLifeStock | TPLifeStock[]> {
-    throw new Error('Method not implemented.');
+    return this.lifestock.Updatetype(data);
   }
-  // TODO
+
   @Post('Updatemop')
   async Updatemop(
-    data: Map<String, any>,
+    @Query() data: Map<String, any>,
   ): Promise<void | TPLifeStock | TPLifeStock[]> {
-    throw new Error('Method not implemented.');
+    return this.lifestock.Updatemop(data);
   }
-  // TODO
+
   @Post('UpdateReport')
-  async UpdateReport(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async UpdateReport(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.UpdateReport(data);
   }
-  // TODO
+
   @Post('Updatevariant')
-  async Updatevariant(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async Updatevariant(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.Updatevariant(data);
   }
-  // TODO
+
   @Post('UpdateTPFarmer')
-  async UpdateTPFarmer(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async UpdateTPFarmer(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.UpdateTPFarmer(data);
   }
-  // TODO
+
   @Post('Updateqrcode')
-  async Updateqrcode(data: Map<String, any>): Promise<void | TPLifeStock> {
-    throw new Error('Method not implemented.');
+  async Updateqrcode(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.Updateqrcode(data);
   }
-  // TODO
 }

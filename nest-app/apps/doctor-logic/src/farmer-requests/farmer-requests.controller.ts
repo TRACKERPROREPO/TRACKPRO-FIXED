@@ -1,4 +1,4 @@
-import { Controller, Logger, Post } from '@nestjs/common';
+import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { IFarmerRequests } from './IFarmerRequests';
 import { FarmerRequestsService } from './farmer-requests.service';
 import { TPRequest } from '@prisma/client';
@@ -6,52 +6,46 @@ import { TPRequest } from '@prisma/client';
 @Controller('farmer-requests')
 export class FarmerRequestsController implements IFarmerRequests {
   logger: Logger;
-  //TODO 
-  @Post("FindByid")
-  async FindByid(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
-  }
-  //TODO 
-  @Post("FindByTPRequesterId")
-  async FindByTPRequesterId(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
-  }
-  //TODO 
-  @Post("FindBylocation")
-  async FindBylocation(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
-  }
-  //TODO 
-  @Post("FindBystatus")
-  async FindBystatus(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
-  }
-  //TODO 
-  @Post("FindBycreatedAt")
-  async FindBycreatedAt(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
-  }
-  //TODO 
-  @Post("FindByupdatedAt")
-  async FindByupdatedAt(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
-  }
-  //TODO 
-  @Post("FindByTPDoctorId")
-  async FindByTPDoctorId(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
-  }
-  //TODO 
-  @Post("FindByTPDoctor")
-  async FindByTPDoctor(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
-  }
-  //TODO 
-  @Post("FindByrequester")
-  async FindByrequester(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
-  }
   /**
    *
    */
+  constructor(private readonly farmerrequest: FarmerRequestsService) {}
+  @Post('FindByid')
+  FindByid(@Query() data: Map<String, any>): Promise<void | TPRequest> {
+    return this.farmerrequest.FindByid(data);
+  }
+  @Post('FindByTPRequesterId')
+  FindByTPRequesterId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.farmerrequest.FindByTPRequesterId(data);
+  }
+  @Post('FindBylocation')
+  FindBylocation(@Query() data: Map<String, any>): Promise<void | TPRequest> {
+    return this.farmerrequest.FindBylocation(data);
+  }
+  @Post('FindBystatus')
+  FindBystatus(@Query() data: Map<String, any>): Promise<void | TPRequest> {
+    return this.farmerrequest.FindBystatus(data);
+  }
+  @Post('FindBycreatedAt')
+  FindBycreatedAt(@Query() data: Map<String, any>): Promise<void | TPRequest> {
+    return this.farmerrequest.FindBycreatedAt(data);
+  }
+  @Post('FindByupdatedAt')
+  FindByupdatedAt(@Query() data: Map<String, any>): Promise<void | TPRequest> {
+    return this.farmerrequest.FindByupdatedAt(data);
+  }
+  @Post('FindByTPDoctorId')
+  FindByTPDoctorId(@Query() data: Map<String, any>): Promise<void | TPRequest> {
+    return this.farmerrequest.FindByTPDoctorId(data);
+  }
+  @Post('FindByTPDoctor')
+  FindByTPDoctor(@Query() data: Map<String, any>): Promise<void | TPRequest> {
+    return this.farmerrequest.FindByTPDoctor(data);
+  }
+  @Post('FindByrequester')
+  FindByrequester(@Query() data: Map<String, any>): Promise<void | TPRequest> {
+    return this.farmerrequest.FindByrequester(data);
+  }
 }

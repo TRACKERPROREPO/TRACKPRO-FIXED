@@ -1,4 +1,4 @@
-import { Controller, Logger, Post } from '@nestjs/common';
+import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { ICheckUp } from './ICheckUp';
 import { CheckUpRequestService } from './check-up-request.service';
 import { TPRequest } from '@prisma/client';
@@ -9,113 +9,139 @@ export class CheckUpRequestController implements ICheckUp {
    *
    */
   logger: Logger;
-  constructor(private readonly checkup: CheckUpRequestService) {
-    this.logger = new Logger("CheckUpRequestController",{
-      timestamp:true
-    })
-  }
-  // TODO
+  constructor(private readonly checkup: CheckUpRequestService) {}
+
   @Post('ScheduleCheckUp')
   async ScheduleCheckUp(): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+    return this.checkup.ScheduleCheckUp();
   }
-  // TODO
+
   @Post('FindBytime')
-  async FindBytime(data: Map<String, any>): Promise<void | TPRequest[]> {
-    throw new Error('Method not implemented.');
+  async FindBytime(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest[]> {
+    return this.checkup.FindBytime(data);
   }
-  // TODO
+
   @Post('Updatetime')
-  async Updatetime(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async Updatetime(@Query() data: Map<String, any>): Promise<void | TPRequest> {
+    return this.checkup.Updatetime(data);
   }
-  // TODO
+
   @Post('FindByid')
-  async FindByid(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async FindByid(@Query() data: Map<String, any>): Promise<void | TPRequest> {
+    return this.checkup.FindByid(data);
   }
-  // TODO
+
   @Post('FindByTPRequesterId')
-  async FindByTPRequesterId(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async FindByTPRequesterId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.FindByTPRequesterId(data);
   }
-  // TODO
+
   @Post('FindByDetails')
-  async FindByDetails(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async FindByDetails(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.FindByDetails(data);
   }
-  // TODO
+
   @Post('FindBylocation')
-  async FindBylocation(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async FindBylocation(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.FindBylocation(data);
   }
-  // TODO
+
   @Post('FindBystatus')
-  async FindBystatus(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async FindBystatus(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.FindBystatus(data);
   }
-  // TODO
+
   @Post('FindBycreatedAt')
   async FindBycreatedAt(
-    data: Map<String, any>,
+    @Query() data: Map<String, any>,
   ): Promise<void | TPRequest | TPRequest[]> {
-    throw new Error('Method not implemented.');
+    return this.checkup.FindBycreatedAt(data);
   }
-  // TODO
+
   @Post('FindByupdatedAt')
   async FindByupdatedAt(
-    data: Map<String, any>,
+    @Query() data: Map<String, any>,
   ): Promise<void | TPRequest | TPRequest[]> {
-    throw new Error('Method not implemented.');
+    return this.checkup.FindByupdatedAt(data);
   }
-  // TODO
+
   @Post('FindByTPDoctorId')
-  async FindByTPDoctorId(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async FindByTPDoctorId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.FindByTPDoctorId(data);
   }
-  // TODO
+
   @Post('FindByTPDoctor')
-  async FindByTPDoctor(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async FindByTPDoctor(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.FindByTPDoctor(data);
   }
-  // TODO
+
   @Post('FindByrequester')
-  async FindByrequester(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async FindByrequester(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.FindByrequester(data);
   }
-  // TODO
+
   @Post('UpdateTPRequesterId')
-  async UpdateTPRequesterId(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async UpdateTPRequesterId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.UpdateTPRequesterId(data);
   }
-  // TODO
+
   @Post('UpdateDetails')
-  async UpdateDetails(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async UpdateDetails(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.UpdateDetails(data);
   }
-  // TODO
+
   @Post('Updatelocation')
-  async Updatelocation(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async Updatelocation(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.Updatelocation(data);
   }
-  // TODO
+
   @Post('Updatestatus')
-  async Updatestatus(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async Updatestatus(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.Updatestatus(data);
   }
-  // TODO
+
   @Post('UpdateTPDoctorId')
-  async UpdateTPDoctorId(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async UpdateTPDoctorId(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.UpdateTPDoctorId(data);
   }
-  // TODO
+
   @Post('UpdateTPDoctor')
-  async UpdateTPDoctor(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async UpdateTPDoctor(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.UpdateTPDoctor(data);
   }
-  // TODO
+
   @Post('Updaterequester')
-  async Updaterequester(data: Map<String, any>): Promise<void | TPRequest> {
-    throw new Error('Method not implemented.');
+  async Updaterequester(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPRequest> {
+    return this.checkup.Updaterequester(data);
   }
 }

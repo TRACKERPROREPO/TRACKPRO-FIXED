@@ -1,57 +1,68 @@
-import { Controller, Logger, Post } from '@nestjs/common';
+import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { IAuth } from './IAuth';
 import { TPAdmin, TPDoctor, TPFarmer } from '@prisma/client';
+import { AuthService } from './auth.service';
 
 @Controller('auth')
 export class AuthController implements IAuth {
   /**
    *
    */
-  constructor() {}
+  constructor(private readonly auth: AuthService) {}
   logger: Logger;
-  // TODO
-  @Post("SignIn")
-  async SignIn(data: Map<String, any>): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
-    throw new Error('Method not implemented.');
+
+  @Post('SignIn')
+  async SignIn(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
+    return this.auth.SignIn(data);
   }
-  // TODO
-  @Post("ChangePassword")
-  async ChangePassword(data: Map<String, any>): Promise<void | Boolean> {
-    throw new Error('Method not implemented.');
+
+  @Post('ChangePassword')
+  async ChangePassword(
+    @Query() data: Map<String, any>,
+  ): Promise<void | Boolean> {
+    return this.auth.ChangePassword(data);
   }
-  // TODO
-  @Post("ForgotPassword")
-  async ForgotPassword(data: Map<String, any>): Promise<void> {
-    throw new Error('Method not implemented.');
+
+  @Post('ForgotPassword')
+  async ForgotPassword(@Query() data: Map<String, any>): Promise<void> {
+    return this.auth.ForgotPassword(data);
   }
-  // TODO
-  @Post("SendOtp")
-  async SendOtp(data: Map<String, any>): Promise<void> {
-    throw new Error('Method not implemented.');
+
+  @Post('SendOtp')
+  async SendOtp(@Query() data: Map<String, any>): Promise<void> {
+    return this.auth.SendOtp(data);
   }
-  // TODO
-  @Post("ResendOtp")
-  async ResendOtp(data: Map<String, any>): Promise<void> {
-    throw new Error('Method not implemented.');
+
+  @Post('ResendOtp')
+  async ResendOtp(@Query() data: Map<String, any>): Promise<void> {
+    return this.auth.ResendOtp(data);
   }
-  // TODO
-  @Post("SignUp")
-  async SignUp(data: Map<String, any>): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
-    throw new Error('Method not implemented.');
+
+  @Post('SignUp')
+  async SignUp(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
+    return this.auth.SignUp(data);
   }
-  // TODO
-  @Post("SignOut")
-  async SignOut(data: Map<String, any>): Promise<void> {
-    throw new Error('Method not implemented.');
+
+  @Post('SignOut')
+  async SignOut(@Query() data: Map<String, any>): Promise<void> {
+    return this.auth.SignOut(data);
   }
-  // TODO
-  @Post("SignUpWithFacebook")
-  async SignUpWithFacebook(data: Map<String, any>): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
-    throw new Error('Method not implemented.');
+
+  @Post('SignUpWithFacebook')
+  async SignUpWithFacebook(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
+    return this.auth.SignUpWithFacebook(data);
   }
-  // TODO
-  @Post("VerifyEmail")
-  async VerifyEmail(data: Map<String, any>): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
-    throw new Error('Method not implemented.');
+
+  @Post('VerifyEmail')
+  async VerifyEmail(
+    @Query() data: Map<String, any>,
+  ): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
+    return this.auth.VerifyEmail(data);
   }
 }

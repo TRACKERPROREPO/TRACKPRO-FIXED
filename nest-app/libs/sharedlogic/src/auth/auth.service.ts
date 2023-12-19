@@ -1,69 +1,86 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { IAuth } from './IAuth';
+import { TPAdmin, TPDoctor, TPFarmer } from '@prisma/client';
+import { DbService } from '../db/db.service';
 
 @Injectable()
 export class AuthService implements IAuth {
-  //TODO
-  async SignIn() {
+  logger: Logger;
+  constructor(private readonly db: DbService) {
+    this.logger = new Logger('AuthService Request', {
+      timestamp: true,
+    });
+  }
+
+  async SignIn(
+    data: Map<String, any>,
+  ): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async ChangePassword(data: Map<String, any>) {
+  async ChangePassword(data: Map<String, any>): Promise<void | Boolean> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async ForgotPassword(data: Map<String, any>) {
+  async ForgotPassword(data: Map<String, any>): Promise<void> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async SendOtp(data: Map<String, any>) {
+  async SendOtp(data: Map<String, any>): Promise<void> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async ResendOtp(data: Map<String, any>) {
+  async ResendOtp(data: Map<String, any>): Promise<void> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async SignUp(data: Map<String, any>) {
+  async SignUp(
+    data: Map<String, any>,
+  ): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async SignOut(data: Map<String, any>) {
+  async SignOut(data: Map<String, any>): Promise<void> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async SignUpWithFacebook(data: Map<String, any>) {
+  async SignUpWithFacebook(
+    data: Map<String, any>,
+  ): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
-  //TODO
-  async VerifyEmail(data: Map<String, any>) {
+  async VerifyEmail(
+    data: Map<String, any>,
+  ): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
     try {
+      this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message);
     }
   }
 }

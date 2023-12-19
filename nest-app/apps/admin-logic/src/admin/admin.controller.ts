@@ -1,4 +1,4 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Logger, Post } from '@nestjs/common';
 import { DoctorService } from 'apps/doctor-logic/src/doctor/doctor.service';
 import { FarmerRequestsService } from 'apps/doctor-logic/src/farmer-requests/farmer-requests.service';
 import { LifeStockReportsService } from 'apps/doctor-logic/src/life-stock-reports/life-stock-reports.service';
@@ -8,6 +8,7 @@ import { LifestockService } from 'apps/farmer-logic/src/lifestock/lifestock.serv
 import { QrCodeService } from 'apps/farmer-logic/src/qr-code/qr-code.service';
 import { TransferService } from 'apps/farmer-logic/src/transfer/transfer.service';
 import { IAdmin } from './IAdmin';
+import { TPAdmin } from '@prisma/client';
 
 @Controller('admin')
 export class AdminController
@@ -34,66 +35,117 @@ export class AdminController
   /**
    *
    */
-  constructor(
-    private readonly doctor: DoctorService,
-    private readonly farmer: FarmerService,
-    private readonly report: LifeStockReportsService,
-    private readonly request: FarmerRequestsService,
-    private readonly qrcode: QrCodeService,
-    private readonly transfer: TransferService,
-    private readonly lifestock: LifestockService,
-    private readonly checkUp: CheckUpRequestService,
-  ) {
-    this.Doctor = doctor;
-    this.Farmer = farmer;
-    this.Lifestock = lifestock;
-    this.Report = report;
-    this.Request = request;
-    this.CheckUp = checkUp;
-    this.Transfer = transfer;
-    this.Qrcode = qrcode;
+  logger: Logger;
+  // TODO
+  @Post('CreateAdmin')
+  async CreateAdmin(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-
-  CreateAdmin() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('FindByid')
+  async FindByid(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindByid() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('FindByfirst_name')
+  async FindByfirst_name(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindByfirst_name() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('FindBylast_name')
+  async FindBylast_name(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindBylast_name() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('FindByemail')
+  async FindByemail(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindByemail() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('FindBynumber')
+  async FindBynumber(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindBynumber() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('FindBypassword')
+  async FindBypassword(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindBypassword() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('FindBycreatedAt')
+  async FindBycreatedAt(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindBycreatedAt() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('FindByupdatedAt')
+  async FindByupdatedAt(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindByupdatedAt() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('Updatefirst_name')
+  async Updatefirst_name(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  Updatefirst_name() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('Updatelast_name')
+  async Updatelast_name(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  Updatelast_name() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('Updateemail')
+  async Updateemail(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  Updateemail() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('Updatenumber')
+  async Updatenumber(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  Updatenumber() {
-    throw new Error('Method not implemented.');
-  }
-  Updatepassword() {
-    throw new Error('Method not implemented.');
+  // TODO
+  @Post('Updatepassword')
+  async Updatepassword(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
 }

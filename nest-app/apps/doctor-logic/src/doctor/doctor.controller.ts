@@ -1,4 +1,4 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Logger, Post } from '@nestjs/common';
 import { IDoctor } from './IDoctor';
 import { DoctorService } from './doctor.service';
 
@@ -8,6 +8,7 @@ export class DoctorController implements IDoctor {
    *
    */
   constructor(private readonly doctor: DoctorService) {}
+  logger: Logger;
   //TODO
   @Post("CreateDoctor")
   CreateDoctor() {

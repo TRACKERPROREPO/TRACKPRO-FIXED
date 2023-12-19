@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { DoctorService } from 'apps/doctor-logic/src/doctor/doctor.service';
 import { FarmerRequestsService } from 'apps/doctor-logic/src/farmer-requests/farmer-requests.service';
 import { LifeStockReportsService } from 'apps/doctor-logic/src/life-stock-reports/life-stock-reports.service';
@@ -8,6 +8,7 @@ import { LifestockService } from 'apps/farmer-logic/src/lifestock/lifestock.serv
 import { QrCodeService } from 'apps/farmer-logic/src/qr-code/qr-code.service';
 import { TransferService } from 'apps/farmer-logic/src/transfer/transfer.service';
 import { IAdmin } from './IAdmin';
+import { TPAdmin } from '@prisma/client';
 
 @Injectable()
 export class AdminService
@@ -50,47 +51,107 @@ export class AdminService
     this.CheckUp = checkUp;
     this.Transfer = transfer;
     this.Qrcode = qrcode;
+    this.logger = new Logger('AdminService', {
+      timestamp: true,
+    });
   }
-  CreateAdmin() {
-    throw new Error('Method not implemented.');
+  async CreateAdmin(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindByid() {
-    throw new Error('Method not implemented.');
+  async FindByid(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindByfirst_name() {
-    throw new Error('Method not implemented.');
+  async FindByfirst_name(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindBylast_name() {
-    throw new Error('Method not implemented.');
+  async FindBylast_name(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindByemail() {
-    throw new Error('Method not implemented.');
+  async FindByemail(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindBynumber() {
-    throw new Error('Method not implemented.');
+  async FindBynumber(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindBypassword() {
-    throw new Error('Method not implemented.');
+  async FindBypassword(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindBycreatedAt() {
-    throw new Error('Method not implemented.');
+  async FindBycreatedAt(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  FindByupdatedAt() {
-    throw new Error('Method not implemented.');
+  async FindByupdatedAt(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  Updatefirst_name() {
-    throw new Error('Method not implemented.');
+  async Updatefirst_name(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  Updatelast_name() {
-    throw new Error('Method not implemented.');
+  async Updatelast_name(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  Updateemail() {
-    throw new Error('Method not implemented.');
+  async Updateemail(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  Updatenumber() {
-    throw new Error('Method not implemented.');
+  async Updatenumber(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
-  Updatepassword() {
-    throw new Error('Method not implemented.');
+  async Updatepassword(data: Map<String, any>): Promise<void | TPAdmin> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
+    }
   }
+  logger: Logger;
 }

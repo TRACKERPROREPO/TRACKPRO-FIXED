@@ -10,66 +10,77 @@ export class QrCodeService implements IQrcode {
       timestamp: true,
     });
   }
+  // TODO
   async CreateQrcode(data: Map<String, any>): Promise<void | TPQrCode> {
     try {
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
+  // TODO
   async Updateid(data: Map<String, any>): Promise<void | TPQrCode> {
     try {
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
+  // TODO
   async Updatelink(data: Map<String, any>): Promise<void | TPQrCode> {
     try {
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
+  // TODO
   async UpdateTPLifeStock(data: Map<String, any>): Promise<void | TPQrCode> {
     try {
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
+  // TODO
   async UpdateTPReport(data: Map<String, any>): Promise<void | TPQrCode> {
     try {
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
+  // TODO
   async FindByid(data: Map<String, any>): Promise<void | TPQrCode> {
     try {
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
+  // TODO
   async FindBylink(data: Map<String, any>): Promise<void | TPQrCode> {
     try {
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
+  // TODO
   async FindBycreatedAt(data: Map<String, any>): Promise<void | TPQrCode> {
     try {
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
+  // TODO
   async FindByupdatedAt(data: Map<String, any>): Promise<void | TPQrCode> {
     try {
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
+  // TODO
   async FindByTPLifeStock(data: Map<String, any>): Promise<void | TPQrCode> {
     try {
     } catch (error) {
       throw new Error('Method not implemented.');
     }
   }
+  // TODO
   async FindByTPReport(data: Map<String, any>): Promise<void | TPQrCode> {
     try {
     } catch (error) {

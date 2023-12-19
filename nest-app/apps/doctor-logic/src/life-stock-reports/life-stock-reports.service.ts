@@ -1,54 +1,145 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { IReports } from './IReports';
+import { TPReport } from '@prisma/client';
+import { DbService } from '@app/sharedlogic/db/db.service';
 
 @Injectable()
 export class LifeStockReportsService implements IReports {
-    CreateReport() {
-        throw new Error('Method not implemented.');
+  logger: Logger;
+  /**
+   *
+   */
+  constructor(private readonly db: DbService) {
+    this.logger = new Logger('LifeStockReportsService', {
+      timestamp: true,
+    });
+  }
+  //TODO
+  async CreateReport(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    UpdateTPQrCodeId() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async UpdateTPQrCodeId(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    UpdatecreatedAt() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async UpdatecreatedAt(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    UpdateupdatedAt() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async UpdateupdatedAt(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    UpdateTPDoctorId() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async UpdateTPDoctorId(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    UpdateTPLifeStock() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async UpdateTPLifeStock(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    UpdateTPDoctor() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async UpdateTPDoctor(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    Updateqrcode() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async Updateqrcode(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    FindByid() {
-        throw new Error('Method not implemented.');
+  }
+  //TODOasync
+  async FindByid(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    FindByTPQrCodeId() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async FindByTPQrCodeId(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    FindBycreatedAt() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async FindBycreatedAt(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    FindByupdatedAt() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async FindByupdatedAt(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    FindByTPDoctorId() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async FindByTPDoctorId(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    FindByTPLifeStock() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async FindByTPLifeStock(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    FindByTPDoctor() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async FindByTPDoctor(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
-    FindByqrcode() {
-        throw new Error('Method not implemented.');
+  }
+  //TODO
+  async FindByqrcode(data: Map<String, any>): Promise<void | TPReport> {
+    try {
+      this.logger.log(data);
+    } catch (error) {
+      throw new Error('Method not implemented.');
     }
+  }
 }

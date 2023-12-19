@@ -1,4 +1,5 @@
 import { Logger } from '@nestjs/common';
+import { TPAdmin } from '@prisma/client';
 import { DoctorService } from 'apps/doctor-logic/src/doctor/doctor.service';
 import { FarmerRequestsService } from 'apps/doctor-logic/src/farmer-requests/farmer-requests.service';
 import { LifeStockReportsService } from 'apps/doctor-logic/src/life-stock-reports/life-stock-reports.service';
@@ -27,18 +28,18 @@ export interface IAdmin<
   Lifestock: Z;
   CheckUp: A;
   logger: Logger;
-  CreateAdmin();
-  FindByid();
-  FindByfirst_name();
-  FindBylast_name();
-  FindByemail();
-  FindBynumber();
-  FindBypassword();
-  FindBycreatedAt();
-  FindByupdatedAt();
-  Updatefirst_name();
-  Updatelast_name();
-  Updateemail();
-  Updatenumber();
-  Updatepassword();
+  CreateAdmin(data: Map<String, any>): Promise<TPAdmin | void>;
+  FindByid(data: Map<String, any>): Promise<TPAdmin | void>;
+  FindByfirst_name(data: Map<String, any>): Promise<TPAdmin | void>;
+  FindBylast_name(data: Map<String, any>): Promise<TPAdmin | void>;
+  FindByemail(data: Map<String, any>): Promise<TPAdmin | void>;
+  FindBynumber(data: Map<String, any>): Promise<TPAdmin | void>;
+  FindBypassword(data: Map<String, any>): Promise<TPAdmin | void>;
+  FindBycreatedAt(data: Map<String, any>): Promise<TPAdmin | void>;
+  FindByupdatedAt(data: Map<String, any>): Promise<TPAdmin | void>;
+  Updatefirst_name(data: Map<String, any>): Promise<TPAdmin | void>;
+  Updatelast_name(data: Map<String, any>): Promise<TPAdmin | void>;
+  Updateemail(data: Map<String, any>): Promise<TPAdmin | void>;
+  Updatenumber(data: Map<String, any>): Promise<TPAdmin | void>;
+  Updatepassword(data: Map<String, any>): Promise<TPAdmin | void>;
 }

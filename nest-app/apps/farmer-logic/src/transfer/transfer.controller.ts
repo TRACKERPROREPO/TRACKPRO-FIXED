@@ -1,4 +1,4 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Logger, Post } from '@nestjs/common';
 import { ITransfer } from './ITransfer';
 import { TransferService } from './transfer.service';
 
@@ -7,6 +7,7 @@ export class TransferController implements ITransfer {
   /**
    *
    */
+  logger: Logger;
   constructor(private readonly transfer: TransferService) {}
   //TODO
   @Post('CreateTransfer')

@@ -1,4 +1,4 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Logger, Post } from '@nestjs/common';
 import { ICheckUp } from './ICheckUp';
 import { CheckUpRequestService } from './check-up-request.service';
 import { TPRequest } from '@prisma/client';
@@ -8,7 +8,12 @@ export class CheckUpRequestController implements ICheckUp {
   /**
    *
    */
-  constructor(private readonly checkup: CheckUpRequestService) {}
+  logger: Logger;
+  constructor(private readonly checkup: CheckUpRequestService) {
+    this.logger = new Logger("CheckUpRequestController",{
+      timestamp:true
+    })
+  }
   // TODO
   @Post('ScheduleCheckUp')
   async ScheduleCheckUp(): Promise<void | TPRequest> {

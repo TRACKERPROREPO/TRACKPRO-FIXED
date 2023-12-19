@@ -1,4 +1,4 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Logger, Post } from '@nestjs/common';
 import { IAuth } from './IAuth';
 import { TPAdmin, TPDoctor, TPFarmer } from '@prisma/client';
 
@@ -8,6 +8,7 @@ export class AuthController implements IAuth {
    *
    */
   constructor() {}
+  logger: Logger;
   // TODO
   @Post("SignIn")
   async SignIn(data: Map<String, any>): Promise<void | TPAdmin | TPDoctor | TPFarmer> {

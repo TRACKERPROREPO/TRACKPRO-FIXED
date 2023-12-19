@@ -1,9 +1,15 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { ICheckUp } from './ICheckUp';
 import { TPRequest } from '@prisma/client';
 
 @Injectable()
 export class CheckUpRequestService implements ICheckUp {
+  logger: Logger;
+  constructor() {
+    this.logger = new Logger('CheckUpRequestService', {
+      timestamp: true,
+    });
+  }
   async ScheduleCheckUp(): Promise<void | TPRequest> {
     try {
     } catch (error) {

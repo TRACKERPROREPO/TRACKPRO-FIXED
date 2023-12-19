@@ -1,4 +1,4 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Logger, Post } from '@nestjs/common';
 import { IQrcode } from './IQrcode';
 import { QrCodeService } from './qr-code.service';
 
@@ -7,6 +7,7 @@ export class QrCodeController implements IQrcode {
   /**
    *
    */
+  logger: Logger;
   constructor(private readonly qrcode: QrCodeService) {}
   // TODO
   @Post('CreateQrcode')

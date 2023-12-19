@@ -1,8 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { ITransfer } from './ITransfer';
 
 @Injectable()
 export class TransferService implements ITransfer {
+  logger: Logger;
+  constructor() {
+    this.logger = new Logger('TransferService', {
+      timestamp: true,
+    });
+  }
   //TODO
   async CreateTransfer() {
     try {

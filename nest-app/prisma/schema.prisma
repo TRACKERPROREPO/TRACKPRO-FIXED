@@ -1,0 +1,220 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model TPFarmer {
+  id            String           @id @default(uuid())
+  first_name    String
+  last_name     String
+  email         String
+  number        String
+  password      String
+  type          TPUserType
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt()
+  lifestock     TPLifeStock[]
+  notifications TPNotification[]
+  TPRequester   TPRequester[]
+  TPTranferFrom TPTranferFrom[]
+  TPTransferTo  TPTransferTo[]
+}
+
+model TPRequest {
+  id            String          @id @default(uuid())
+  TPRequesterId String
+  time          DateTime
+  Details       Json
+  location      Json            @default("{}")
+  status        TPRequestStatus @default(Pending)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt()
+  TPDoctorId    String?
+  TPDoctor      TPDoctor?       @relation(fields: [TPDoctorId], references: [id])
+  requester     TPRequester     @relation(fields: [TPRequesterId], references: [id])
+}
+
+model TPDoctor {
+  id            String           @id @default(uuid())
+  first_name    String
+  last_name     String
+  email         String
+  number        String
+  password      String
+  type          TPUserType
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt()
+  notifications TPNotification[]
+  reports       TPReport[]
+  requests      TPRequest[]
+}
+
+model TPAdmin {
+  id         String     @id @default(uuid())
+  first_name String
+  last_name  String
+  email      String
+  number     String
+  password   String
+  type       TPUserType
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt()
+}
+
+model TPNotification {
+  id         String    @id @default(uuid())
+  data       Json
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt()
+  TPFarmerId String?
+  tPDoctorId String?
+  TPFarmer   TPFarmer? @relation(fields: [TPFarmerId], references: [id])
+  TPDoctor   TPDoctor? @relation(fields: [tPDoctorId], references: [id])
+}
+
+model TPRequester {
+  id         String      @id @default(uuid())
+  tPFarmerId String
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt()
+  requests   TPRequest[]
+  farmer     TPFarmer    @relation(fields: [tPFarmerId], references: [id])
+}
+
+model TPReport {
+  id          String        @id @default(uuid())
+  TPQrCodeId  String
+  details     Json
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt()
+  TPDoctorId  String?
+  TPLifeStock TPLifeStock[]
+  TPDoctor    TPDoctor?     @relation(fields: [TPDoctorId], references: [id])
+  qrcode      TPQrCode      @relation(fields: [TPQrCodeId], references: [id])
+}
+
+model TPBreed {
+  id          String        @id @default(uuid())
+  name        String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt()
+  TPLifeStock TPLifeStock[]
+}
+
+model TPLifeStock {
+  id                    String              @id @default(uuid())
+  status                TPVacination        @default(Unvacinated)
+  gender                TPGender
+  age                   Int
+  TPMethodOfPossesionId String
+  tPQrCodeId            String
+  TPReportId            String
+  TPVariantId           String
+  TPLifeStockTypeId     String
+  TPBreedId             String
+  createdAt             DateTime            @default(now())
+  updatedAt             DateTime            @updatedAt()
+  tPFarmerId            String?
+  breed                 TPBreed             @relation(fields: [TPBreedId], references: [id])
+  type                  TPLifeStockType     @relation(fields: [TPLifeStockTypeId], references: [id])
+  mop                   TPMethodOfPossesion @relation(fields: [TPMethodOfPossesionId], references: [id])
+  Report                TPReport            @relation(fields: [TPReportId], references: [id])
+  variant               TPVariant           @relation(fields: [TPVariantId], references: [id])
+  TPFarmer              TPFarmer?           @relation(fields: [tPFarmerId], references: [id])
+  qrcode                TPQrCode            @relation(fields: [tPQrCodeId], references: [id])
+}
+
+model TPTransfer {
+  id              String         @id @default(uuid())
+  state           TPTranferState @default(Pending)
+  TPTransferToId  String
+  TPTranferFromId String
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt()
+  from            TPTranferFrom  @relation(fields: [TPTranferFromId], references: [id])
+  to              TPTransferTo   @relation(fields: [TPTransferToId], references: [id])
+}
+
+model TPQrCode {
+  id          String        @id @default(uuid())
+  link        String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt()
+  TPLifeStock TPLifeStock[]
+  TPReport    TPReport[]
+}
+
+model TPMethodOfPossesion {
+  id          String        @id @default(uuid())
+  details     String
+  link        String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt()
+  TPLifeStock TPLifeStock[]
+}
+
+model TPVariant {
+  id          String        @id @default(uuid())
+  name        String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt()
+  TPLifeStock TPLifeStock[]
+}
+
+model TPLifeStockType {
+  id          String        @id @default(uuid())
+  name        String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt()
+  TPLifeStock TPLifeStock[]
+}
+
+model TPTransferTo {
+  id         String       @id @default(uuid())
+  TPFarmerId String
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt()
+  TPTransfer TPTransfer[]
+  farmer     TPFarmer     @relation(fields: [TPFarmerId], references: [id])
+}
+
+model TPTranferFrom {
+  id         String       @id @default(uuid())
+  TPFarmerId String
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt()
+  farmer     TPFarmer     @relation(fields: [TPFarmerId], references: [id])
+  TPTransfer TPTransfer[]
+}
+
+enum TPGender {
+  Male
+  Female
+}
+
+enum TPVacination {
+  Vacinated
+  Unvacinated
+}
+
+enum TPRequestStatus {
+  Pending
+  Attended
+  Visited
+}
+
+enum TPTranferState {
+  Succesful
+  Failed
+  Pending
+}
+
+enum TPUserType {
+  Admin
+  Farmer
+  Doctor
+}

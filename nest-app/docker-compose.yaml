@@ -1,0 +1,135 @@
+version: '3.8'
+
+services:
+  Tracker-Pro-Db:
+    image: postgres
+    container_name: Tracker-Pro-Db
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_TABLE}
+      - POSTGRES_USER=${DB_USER}
+    volumes:
+      - ./tpdatabase/postgresql/data:/var/lib/postrgresql/data
+    ports:
+      - "${DB_PORT}:5432"
+    env_file:
+      - .env
+
+  Tracker-Pro-Notifications:
+    image: gotify/server:latest
+    container_name: Tracker-Pro-Notifications
+    ports:
+      - "${GOTIFY_PORT}:80"
+    volumes:
+      - ./tpnotifications/data:/app/data
+    environment:
+      - GOTIFY_DEFAULTUSER_PASS=${GOTIFY_PASSWORD}
+      - GOTIFY_DEFAULTUSER_NAME=${GOTIFY_USERNAME}
+    env_file:
+      - .env
+
+  
+  Tracker-Pro-Qr-Code-Service:
+    image: samwierema/go-qr-generator:latest
+    container_name: Tracker-Pro-Qr-Code
+    ports:
+      - "8080:8080"
+
+  
+
+  Tracker-Pro-Gateway:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: Tracker-Pro-Gateway
+    restart: unless-stopped
+    ports:
+      # These ports are in format <host-port>:<container-port>
+      - '80:80' # Public HTTP Port
+      - '443:443' # Public HTTPS Port
+      - '81:81' # Admin Web Port
+      # Add any other Stream port you want to expose
+      # - '21:21' # FTP
+    environment:
+      # Mysql/Maria connection parameters:
+      DB_MYSQL_HOST: "db"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm"
+      DB_MYSQL_PASSWORD: "npm"
+      DB_MYSQL_NAME: "npm"
+      # Uncomment this if IPv6 is not enabled on your host
+      # DISABLE_IPV6: 'true'
+    volumes:
+      - ./tpgateway/data:/data
+      - ./tpgateway/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - db
+
+  db:
+    image: 'jc21/mariadb-aria:latest'
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 'npm'
+      MYSQL_DATABASE: 'npm'
+      MYSQL_USER: 'npm'
+      MYSQL_PASSWORD: 'npm'
+    volumes:
+      - ./tpgateway/mysql:/var/lib/mysql
+    # Tracker-Pro-Email:
+    # image: postgres
+    # container_name: Tracker-Pro-Db
+    # environment:
+    #   - POSTGRES_PASSWORD=${DB_PASSWORD}
+    #   - POSTGRES_DB=${DB_TABLE}
+    #   - POSTGRES_USER=${DB_USER}
+    # ports:
+    #   - "${PORT}:5432"
+    # env_file:
+    #   - ./.env
+
+    # Tracker-Pro-Cache:
+    # image: postgres
+    # container_name: Tracker-Pro-Db
+    # environment:
+    #   - POSTGRES_PASSWORD=${DB_PASSWORD}
+    #   - POSTGRES_DB=${DB_TABLE}
+    #   - POSTGRES_USER=${DB_USER}
+    # ports:
+    #   - "${PORT}:5432"
+    # env_file:
+    #   - ./.env
+
+    # Tracker-Pro-Admin:
+    # image: postgres
+    # container_name: Tracker-Pro-Db
+    # environment:
+    #   - POSTGRES_PASSWORD=${DB_PASSWORD}
+    #   - POSTGRES_DB=${DB_TABLE}
+    #   - POSTGRES_USER=${DB_USER}
+    # ports:
+    #   - "${PORT}:5432"
+    # env_file:
+    #   - nest-app/apps/admin-logic/.env
+
+    # Tracker-Pro-Doctor:
+    # image: postgres
+    # container_name: Tracker-Pro-Db
+    # environment:
+    #   - POSTGRES_PASSWORD=${DB_PASSWORD}
+    #   - POSTGRES_DB=${DB_TABLE}
+    #   - POSTGRES_USER=${DB_USER}
+    # ports:
+    #   - "${PORT}:5432"
+    # env_file:
+    #   - nest-app/apps/doctor-logic/.env
+
+    # Tracker-Pro-Farmer:
+    # image: postgres
+    # container_name: Tracker-Pro-Db
+    # environment:
+    #   - POSTGRES_PASSWORD=${DB_PASSWORD}
+    #   - POSTGRES_DB=${DB_TABLE}
+    #   - POSTGRES_USER=${DB_USER}
+    # ports:
+    #   - "${PORT}:5432"
+    # env_file:
+    #   - nest-app/apps/farmer-logic/.env
+

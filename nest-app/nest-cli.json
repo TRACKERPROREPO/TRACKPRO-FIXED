@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/farmer-logic/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/farmer-logic/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/nest-app",
+  "projects": {
+    "farmer-logic": {
+      "type": "application",
+      "root": "apps/farmer-logic",
+      "entryFile": "main",
+      "sourceRoot": "apps/farmer-logic/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/farmer-logic/tsconfig.app.json"
+      }
+    },
+    "doctor-logic": {
+      "type": "application",
+      "root": "apps/doctor-logic",
+      "entryFile": "main",
+      "sourceRoot": "apps/doctor-logic/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/doctor-logic/tsconfig.app.json"
+      }
+    },
+    "sharedlogic": {
+      "type": "library",
+      "root": "libs/sharedlogic",
+      "entryFile": "index",
+      "sourceRoot": "libs/sharedlogic/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/sharedlogic/tsconfig.lib.json"
+      }
+    },
+    "admin-logic": {
+      "type": "application",
+      "root": "apps/admin-logic",
+      "entryFile": "main",
+      "sourceRoot": "apps/admin-logic/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/admin-logic/tsconfig.app.json"
+      }
+    }
+  }
+}

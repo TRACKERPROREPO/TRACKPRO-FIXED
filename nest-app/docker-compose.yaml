@@ -40,7 +40,6 @@ services:
   Tracker-Pro-Gateway:
     image: 'jc21/nginx-proxy-manager:latest'
     container_name: Tracker-Pro-Gateway
-    restart: unless-stopped
     ports:
       # These ports are in format <host-port>:<container-port>
       - '80:80' # Public HTTP Port
@@ -65,7 +64,6 @@ services:
 
   db:
     image: 'jc21/mariadb-aria:latest'
-    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: 'npm'
       MYSQL_DATABASE: 'npm'

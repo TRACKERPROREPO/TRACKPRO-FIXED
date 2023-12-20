@@ -15,7 +15,7 @@ export class LifestockService implements ILifestock {
   async CreateLifestock() {
     try {
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -23,7 +23,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -31,7 +31,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -39,7 +39,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -47,7 +47,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -55,7 +55,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -63,7 +63,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -71,7 +71,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -79,7 +79,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -87,7 +87,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -95,7 +95,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -103,7 +103,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -111,7 +111,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -119,7 +119,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -127,7 +127,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -135,7 +135,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -143,7 +143,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -151,7 +151,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -159,7 +159,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -167,7 +167,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -175,7 +175,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -183,7 +183,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -191,7 +191,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -199,7 +199,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -207,7 +207,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -215,7 +215,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -223,7 +223,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -231,7 +231,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -239,7 +239,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -247,7 +247,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -255,7 +255,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -263,7 +263,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -271,7 +271,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -279,7 +279,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -287,7 +287,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
   //TODO
@@ -295,7 +295,7 @@ export class LifestockService implements ILifestock {
     try {
       this.logger.log(data);
     } catch (error) {
-      throw new Error('Method not implemented.');
+      this.logger.error(error?.message)
     }
   }
 }

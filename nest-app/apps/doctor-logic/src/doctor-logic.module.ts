@@ -13,7 +13,7 @@ import { AuthModule } from '@app/sharedlogic/auth/auth.module';
     LifeStockReportsModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath:["./.env"]
+      envFilePath:["apps/doctor-logic/.env"]
     }),
   ],
   controllers: [],

@@ -17,7 +17,7 @@ import { AuthModule } from '@app/sharedlogic/auth/auth.module';
     CheckUpRequestModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: ['./.env'],
+      envFilePath: ['apps/farmer-logic/.env'],
     }),
   ],
   controllers: [],

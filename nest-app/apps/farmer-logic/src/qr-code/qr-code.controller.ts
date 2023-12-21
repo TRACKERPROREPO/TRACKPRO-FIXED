@@ -2,6 +2,7 @@ import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { IQrcode } from './IQrcode';
 import { QrCodeService } from './qr-code.service';
 import { TPQrCode } from '@prisma/client';
+import { CreateQrcodeDto } from './create-qrcode.dto';
 
 @Controller('qr-code')
 export class QrCodeController implements IQrcode {
@@ -12,7 +13,7 @@ export class QrCodeController implements IQrcode {
   constructor(private readonly qrcode: QrCodeService) {}
   @Post('CreateQrcode')
   async CreateQrcode(
-    @Query() data: Map<String, any>,
+    @Query() data: CreateQrcodeDto,
   ): Promise<void | TPQrCode> {
     return this.qrcode.CreateQrcode(data);
   }

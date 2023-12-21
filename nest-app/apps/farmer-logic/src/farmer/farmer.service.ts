@@ -248,8 +248,7 @@ export class FarmerService implements IFarmer {
       this.logger.error(error?.message);
     }
   }
-  //TODO
-  // take from auth service
+  //TODO take from auth module
   async Updatepassword(data: Map<String, any>) {
     try {
       this.logger.log(data, 'Request');

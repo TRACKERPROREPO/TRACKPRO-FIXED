@@ -1,9 +1,10 @@
 import { Logger } from '@nestjs/common';
 import { TPQrCode } from '@prisma/client';
+import { CreateQrcodeDto } from './create-qrcode.dto';
 
 export interface IQrcode {
   logger: Logger;
-  CreateQrcode(data: Map<String, any>): Promise<TPQrCode | void>;
+  CreateQrcode(data: CreateQrcodeDto): Promise<TPQrCode | void>;
   Updateid(data: Map<String, any>): Promise<TPQrCode | void>;
   Updatelink(data: Map<String, any>): Promise<TPQrCode | void>;
   UpdateTPLifeStock(data: Map<String, any>): Promise<TPQrCode | void>;

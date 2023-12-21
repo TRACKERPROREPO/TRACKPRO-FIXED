@@ -142,7 +142,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async FindBystatus(data: Map<String, any>): Promise<void | TPRequest> {
     try {
       this.logger.log(data);
@@ -156,7 +156,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async FindBycreatedAt(
     data: Map<String, any>,
   ): Promise<void | TPRequest | TPRequest[]> {
@@ -172,7 +172,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async FindByupdatedAt(
     data: Map<String, any>,
   ): Promise<void | TPRequest | TPRequest[]> {
@@ -188,7 +188,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async FindByTPDoctorId(data: Map<String, any>): Promise<void | TPRequest> {
     try {
       this.logger.log(data);
@@ -202,7 +202,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async FindByTPDoctor(data: Map<String, any>): Promise<void | TPRequest> {
     try {
       this.logger.log(data);
@@ -220,7 +220,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async FindByrequester(data: Map<String, any>): Promise<void | TPRequest> {
     try {
       this.logger.log(data);
@@ -236,7 +236,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async UpdateTPRequesterId(data: Map<String, any>): Promise<void | TPRequest> {
     try {
       this.logger.log(data);
@@ -252,7 +252,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async UpdateDetails(data: Map<String, any>): Promise<void | TPRequest> {
     try {
       this.logger.log(data);
@@ -269,7 +269,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async Updatelocation(data: Map<String, any>): Promise<void | TPRequest> {
     try {
       this.logger.log(data);
@@ -287,7 +287,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async Updatestatus(data: Map<String, any>): Promise<void | TPRequest> {
     try {
       this.logger.log(data);
@@ -304,7 +304,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async UpdateTPDoctorId(data: Map<String, any>): Promise<void | TPRequest> {
     try {
       this.logger.log(data);
@@ -321,7 +321,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async UpdateTPDoctor(data: Map<String, any>): Promise<void | TPRequest> {
     try {
       this.logger.log(data);
@@ -338,7 +338,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.error(error?.message);
     }
   }
-  //TODO
+
   async Updaterequester(data: Map<String, any>): Promise<void | TPRequest> {
     try {
       this.logger.log(data);

@@ -1,4 +1,4 @@
-import { Controller, Logger, Post, Query } from '@nestjs/common';
+import { Controller, Get, Logger, Post, Query } from '@nestjs/common';
 import { IQrcode } from './IQrcode';
 import { QrCodeService } from './qr-code.service';
 import { TPQrCode } from '@prisma/client';
@@ -37,33 +37,33 @@ export class QrCodeController implements IQrcode {
   ): Promise<void | TPQrCode> {
     return this.qrcode.UpdateTPReport(data);
   }
-  @Post('FindByid')
+  @Get('FindByid')
   async FindByid(@Query() data: Map<String, any>): Promise<void | TPQrCode> {
     return this.qrcode.FindByid(data);
   }
-  @Post('FindBylink')
+  @Get('FindBylink')
   async FindBylink(@Query() data: Map<String, any>): Promise<void | TPQrCode> {
     return this.qrcode.FindBylink(data);
   }
-  @Post('FindBycreatedAt')
+  @Get('FindBycreatedAt')
   async FindBycreatedAt(
     @Query() data: Map<String, any>,
   ): Promise<void | TPQrCode> {
     return this.qrcode.FindBycreatedAt(data);
   }
-  @Post('FindByupdatedAt')
+  @Get('FindByupdatedAt')
   async FindByupdatedAt(
     @Query() data: Map<String, any>,
   ): Promise<void | TPQrCode> {
     return this.qrcode.FindByupdatedAt(data);
   }
-  @Post('FindByTPLifeStock')
+  @Get('FindByTPLifeStock')
   async FindByTPLifeStock(
     @Query() data: Map<String, any>,
   ): Promise<void | TPQrCode> {
     return this.qrcode.FindByTPLifeStock(data);
   }
-  @Post('FindByTPReport')
+  @Get('FindByTPReport')
   async FindByTPReport(
     @Query() data: Map<String, any>,
   ): Promise<void | TPQrCode> {

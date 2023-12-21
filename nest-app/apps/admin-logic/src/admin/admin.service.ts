@@ -153,5 +153,6 @@ export class AdminService
       throw new Error('Method not implemented.');
     }
   }
+
   logger: Logger;
 }

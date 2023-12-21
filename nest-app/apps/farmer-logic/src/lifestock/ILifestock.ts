@@ -1,9 +1,10 @@
 import { Logger } from '@nestjs/common';
 import { TPLifeStock } from '@prisma/client';
+import { CreateLifestockDto } from './create-lifestock.dto';
 
 export interface ILifestock {
   logger: Logger;
-  CreateLifestock(): Promise<TPLifeStock | void>;
+  CreateLifestock(data:CreateLifestockDto): Promise<TPLifeStock | void>;
   FindByid(data: Map<String, any>): Promise<TPLifeStock | void>;
   FindBystatus(data: Map<String, any>): Promise<TPLifeStock[] | void>;
   FindBygender(data: Map<String, any>): Promise<TPLifeStock[] | void>;

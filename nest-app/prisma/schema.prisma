@@ -112,7 +112,7 @@ model TPLifeStock {
   age                   Int
   TPMethodOfPossesionId String
   tPQrCodeId            String
-  TPReportId            String
+  TPReportId            String?
   TPVariantId           String
   TPLifeStockTypeId     String
   TPBreedId             String
@@ -122,7 +122,7 @@ model TPLifeStock {
   breed                 TPBreed             @relation(fields: [TPBreedId], references: [id])
   type                  TPLifeStockType     @relation(fields: [TPLifeStockTypeId], references: [id])
   mop                   TPMethodOfPossesion @relation(fields: [TPMethodOfPossesionId], references: [id])
-  Report                TPReport            @relation(fields: [TPReportId], references: [id])
+  Report                TPReport?            @relation(fields: [TPReportId], references: [id])
   variant               TPVariant           @relation(fields: [TPVariantId], references: [id])
   TPFarmer              TPFarmer?           @relation(fields: [tPFarmerId], references: [id])
   qrcode                TPQrCode            @relation(fields: [tPQrCodeId], references: [id])
@@ -154,7 +154,6 @@ model TPQrCode {
 model TPMethodOfPossesion {
   id          String        @id @default(uuid())
   details     String
-  link        String
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt()
   TPLifeStock TPLifeStock[]

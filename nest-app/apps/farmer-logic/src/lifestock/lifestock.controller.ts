@@ -2,6 +2,7 @@ import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { ILifestock } from './ILifestock';
 import { LifestockService } from './lifestock.service';
 import { TPLifeStock } from '@prisma/client';
+import { CreateLifestockDto } from './create-lifestock.dto';
 
 @Controller('lifestock')
 export class LifestockController implements ILifestock {
@@ -12,8 +13,10 @@ export class LifestockController implements ILifestock {
   constructor(private readonly lifestock: LifestockService) {}
 
   @Post('CreateLifestock')
-  async CreateLifestock(): Promise<void | TPLifeStock> {
-    return this.lifestock.CreateLifestock();
+  async CreateLifestock(
+    @Query() data: CreateLifestockDto,
+  ): Promise<void | TPLifeStock> {
+    return this.lifestock.CreateLifestock(data);
   }
 
   @Post('FindByid')

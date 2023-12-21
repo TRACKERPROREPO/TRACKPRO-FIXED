@@ -22,12 +22,20 @@ export class TransferService implements ITransfer {
       });
       const to = await this.db.tPTransferTo.create({
         data: {
-          TPFarmerId: data['farmerToId'],
+          farmer: {
+            connect: {
+              id: data['farmerToId'],
+            },
+          },
         },
       });
       const from = await this.db.tPTranferFrom.create({
         data: {
-          TPFarmerId: data['farmerFromId'],
+          farmer: {
+            connect: {
+              id: data['farmerFromId'],
+            },
+          },
         },
       });
       const transfer = await this.db.tPFarmer.update({

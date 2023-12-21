@@ -2,6 +2,7 @@ import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { ICheckUp } from './ICheckUp';
 import { CheckUpRequestService } from './check-up-request.service';
 import { TPRequest } from '@prisma/client';
+import { CreateCheckUpRequestDto } from './create-check-up-request.dto';
 
 @Controller('check-up-request')
 export class CheckUpRequestController implements ICheckUp {
@@ -12,8 +13,8 @@ export class CheckUpRequestController implements ICheckUp {
   constructor(private readonly checkup: CheckUpRequestService) {}
 
   @Post('ScheduleCheckUp')
-  async ScheduleCheckUp(): Promise<void | TPRequest> {
-    return this.checkup.ScheduleCheckUp();
+  async ScheduleCheckUp(data:CreateCheckUpRequestDto): Promise<void | TPRequest> {
+    return this.checkup.ScheduleCheckUp(data);
   }
 
   @Post('FindBytime')

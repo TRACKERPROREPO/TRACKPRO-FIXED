@@ -1,9 +1,10 @@
 import { Logger } from '@nestjs/common';
 import { TPRequest } from '@prisma/client';
+import { CreateCheckUpRequestDto } from './create-check-up-request.dto';
 
 export interface ICheckUp {
   logger: Logger;
-  ScheduleCheckUp(): Promise<TPRequest | void>;
+  ScheduleCheckUp(data:CreateCheckUpRequestDto): Promise<TPRequest | void>;
   FindBytime(data: Map<String, any>): Promise<TPRequest[] | void>;
   Updatetime(data: Map<String, any>): Promise<TPRequest | void>;
   FindByid(data: Map<String, any>): Promise<TPRequest | void>;

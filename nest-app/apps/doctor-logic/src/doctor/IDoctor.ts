@@ -1,9 +1,10 @@
 import { Logger } from '@nestjs/common';
 import { TPDoctor } from '@prisma/client';
+import { CreateDoctorDto } from './create-doctor.dto';
 
 export interface IDoctor {
   logger: Logger;
-  CreateDoctor();
+  CreateDoctor(data: CreateDoctorDto): Promise<TPDoctor | void>;
   Updatefirst_name(data: Map<String, any>): Promise<TPDoctor | void>;
   Updatelast_name(data: Map<String, any>): Promise<TPDoctor | void>;
   Updateemail(data: Map<String, any>): Promise<TPDoctor | void>;
@@ -17,8 +18,12 @@ export interface IDoctor {
   FindBylast_name(data: Map<String, any>): Promise<TPDoctor | void>;
   FindByemail(data: Map<String, any>): Promise<TPDoctor | void>;
   FindBynumber(data: Map<String, any>): Promise<TPDoctor | void>;
-  FindBycreatedAt(data: Map<String, any>): Promise<TPDoctor | void>;
-  FindByupdatedAt(data: Map<String, any>): Promise<TPDoctor | void>;
-  FindByreports(data: Map<String, any>): Promise<TPDoctor | void>;
-  FindByrequests(data: Map<String, any>): Promise<TPDoctor | void>;
+  FindBycreatedAt(
+    data: Map<String, any>,
+  ): Promise<TPDoctor | TPDoctor[] | void>;
+  FindByupdatedAt(
+    data: Map<String, any>,
+  ): Promise<TPDoctor | TPDoctor[] | void>;
+  FindByreports(data: Map<String, any>): Promise<TPDoctor | TPDoctor[] | void>;
+  FindByrequests(data: Map<String, any>): Promise<TPDoctor | TPDoctor[] | void>;
 }

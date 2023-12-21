@@ -2,6 +2,7 @@ import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { IDoctor } from './IDoctor';
 import { DoctorService } from './doctor.service';
 import { TPDoctor } from '@prisma/client';
+import { CreateDoctorDto } from './create-doctor.dto';
 
 @Controller('doctor')
 export class DoctorController implements IDoctor {
@@ -11,8 +12,8 @@ export class DoctorController implements IDoctor {
   constructor(private readonly doctor: DoctorService) {}
   logger: Logger;
   @Post('CreateDoctor')
-  CreateDoctor() {
-    return this.doctor.CreateDoctor();
+  CreateDoctor(@Query() data: CreateDoctorDto) {
+    return this.doctor.CreateDoctor(data);
   }
   @Post('Updatefirst_name')
   Updatefirst_name(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
@@ -69,19 +70,19 @@ export class DoctorController implements IDoctor {
     return this.doctor.FindBynumber(data);
   }
   @Post('FindBycreatedAt')
-  FindBycreatedAt(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+  FindBycreatedAt(@Query() data: Map<String, any>): Promise<TPDoctor[]> {
     return this.doctor.FindBycreatedAt(data);
   }
   @Post('FindByupdatedAt')
-  FindByupdatedAt(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+  FindByupdatedAt(@Query() data: Map<String, any>): Promise<TPDoctor[]> {
     return this.doctor.FindByupdatedAt(data);
   }
   @Post('FindByreports')
-  FindByreports(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+  FindByreports(@Query() data: Map<String, any>): Promise<TPDoctor[]> {
     return this.doctor.FindByreports(data);
   }
   @Post('FindByrequests')
-  FindByrequests(@Query() data: Map<String, any>): Promise<void | TPDoctor> {
+  FindByrequests(@Query() data: Map<String, any>): Promise<TPDoctor[]> {
     return this.doctor.FindByrequests(data);
   }
 }

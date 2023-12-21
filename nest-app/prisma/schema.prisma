@@ -126,6 +126,7 @@ model TPLifeStock {
   variant               TPVariant           @relation(fields: [TPVariantId], references: [id])
   TPFarmer              TPFarmer?           @relation(fields: [tPFarmerId], references: [id])
   qrcode                TPQrCode            @relation(fields: [tPQrCodeId], references: [id])
+  TPTransfer            TPTransfer[]
 }
 
 model TPTransfer {
@@ -133,6 +134,8 @@ model TPTransfer {
   state           TPTranferState @default(Pending)
   TPTransferToId  String
   TPTranferFromId String
+  lifeStock       TPLifeStock    @relation(fields: [tPLifeStockId], references: [id])
+  tPLifeStockId   String
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt()
   from            TPTranferFrom  @relation(fields: [TPTranferFromId], references: [id])

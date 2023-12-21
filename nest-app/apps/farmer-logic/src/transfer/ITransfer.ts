@@ -1,15 +1,16 @@
 import { Logger } from '@nestjs/common';
-import { TPTransfer } from '@prisma/client';
+import { TPTranferFrom, TPTransfer, TPTransferTo } from '@prisma/client';
+import { CreateTransferDto } from './create-transfer.dto';
 
 export interface ITransfer {
   logger: Logger;
-  CreateTransfer(data: Map<String, any>): Promise<TPTransfer | void>;
+  CreateTransfer(data:CreateTransferDto): Promise<TPTransfer | void>;
   FindByid(data: Map<String, any>): Promise<TPTransfer | void>;
   FindBystate(
     data: Map<String, any>,
   ): Promise<TPTransfer[] | TPTransfer | void>;
-  FindByTPTransferToId(data: Map<String, any>): Promise<TPTransfer | void>;
-  FindByTPTranferFromId(data: Map<String, any>): Promise<TPTransfer | void>;
+  FindByTPTransferToId(data: Map<String, any>): Promise<TPTransferTo | void>;
+  FindByTPTranferFromId(data: Map<String, any>): Promise<TPTranferFrom | void>;
   FindBycreatedAt(
     data: Map<String, any>,
   ): Promise<TPTransfer[] | TPTransfer | void>;

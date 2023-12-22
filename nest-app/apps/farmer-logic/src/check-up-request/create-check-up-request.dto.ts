@@ -15,10 +15,8 @@ export class CreateCheckUpRequestDto {
   @IsDateString()
   time;
   @IsNotEmpty()
-  @IsJSON()
   Details;
   @IsNotEmpty()
-  @IsJSON()
   location;
   @IsNotEmpty()
   @IsEnum(TPRequestStatus)

@@ -13,7 +13,9 @@ export class CheckUpRequestController implements ICheckUp {
   constructor(private readonly checkup: CheckUpRequestService) {}
 
   @Post('ScheduleCheckUp')
-  async ScheduleCheckUp(data:CreateCheckUpRequestDto): Promise<void | TPRequest> {
+  async ScheduleCheckUp(
+    @Query() data: CreateCheckUpRequestDto,
+  ): Promise<void | TPRequest> {
     return this.checkup.ScheduleCheckUp(data);
   }
 

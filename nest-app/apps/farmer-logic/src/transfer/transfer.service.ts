@@ -38,6 +38,7 @@ export class TransferService implements ITransfer {
           },
         },
       });
+
       const transfer = await this.db.tPFarmer.update({
         data: {
           lifestock: {
@@ -56,6 +57,21 @@ export class TransferService implements ITransfer {
           TPTransferToId: to.id,
           tPLifeStockId: lifestock.id,
           state: 'Succesful',
+          reciever_data: (await this.db.tPFarmer.findFirst({
+            where: {
+              id: to.TPFarmerId,
+            },
+          })) as any,
+          sender_data: (await this.db.tPFarmer.findFirst({
+            where: {
+              id: from.TPFarmerId,
+            },
+          })) as any,
+          lifestock_data: (await this.db.tPLifeStock.findFirst({
+            where: {
+              id: lifestock.id,
+            },
+          })) as any,
         },
       });
       return transfer_query;

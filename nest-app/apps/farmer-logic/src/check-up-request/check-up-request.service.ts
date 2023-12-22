@@ -16,6 +16,7 @@ export class CheckUpRequestService implements ICheckUp {
     data: CreateCheckUpRequestDto,
   ): Promise<void | TPRequest> {
     try {
+      this.logger.log(data);
       const doctor = await this.db.tPDoctor.findFirst({
         where: {
           id: data['doctorId'],
@@ -23,7 +24,11 @@ export class CheckUpRequestService implements ICheckUp {
       });
       const requester = await this.db.tPRequester.create({
         data: {
-          tPFarmerId: data['farmerId'],
+          farmer: {
+            connect: {
+              id: data['RequesterId'],
+            },
+          },
         },
       });
       const checkup = await this.db.tPRequest.create({
@@ -39,9 +44,9 @@ export class CheckUpRequestService implements ICheckUp {
               id: doctor.id,
             },
           },
-          Details: data['details']['text'] && data['details']['photo'],
-          location:
-            data['location']['longitude'] && data['location']['latitude'],
+          location: JSON.parse(data['location']),
+          status: 'Pending',
+          Details: JSON.parse(data['Details']),
         },
       });
       return checkup;
@@ -119,7 +124,7 @@ export class CheckUpRequestService implements ICheckUp {
       this.logger.log(data);
       const request = await this.db.tPRequest.findFirstOrThrow({
         where: {
-          Details: data['details']['text'] && data['details']['photo'],
+          Details: JSON.parse(data['Details']),
         },
       });
       return request;

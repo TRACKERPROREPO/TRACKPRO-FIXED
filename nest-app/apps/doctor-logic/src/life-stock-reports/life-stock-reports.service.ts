@@ -2,7 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { IReports } from './IReports';
 import { TPReport } from '@prisma/client';
 import { DbService } from '@app/sharedlogic/db/db.service';
-import { CreateCheckUpRequestDto } from 'apps/farmer-logic/src/check-up-request/create-check-up-request.dto';
+import { CreateLifeStockReportDto } from './create-life-stock-report.dto';
 
 @Injectable()
 export class LifeStockReportsService implements IReports {
@@ -16,10 +16,64 @@ export class LifeStockReportsService implements IReports {
     });
   }
 
-  async CreateReport(data: CreateCheckUpRequestDto): Promise<void | TPReport> {
+  async CreateReport(data: CreateLifeStockReportDto): Promise<void | TPReport> {
     try {
-      const report = await this.db.tPReport;
+      // TODO generate link
+      const qrcode = await this.db.tPQrCode.create({
+        data: {
+          link: '',
+        },
+      });
+      const lifestock = await this.db.tPLifeStock.findFirstOrThrow({
+        where: {
+          id: {
+            equals: data['lifestockId'],
+          },
+        },
+      });
+      const doctor = await this.db.tPDoctor.findFirstOrThrow({
+        where: {
+          id: {
+            equals: data['doctorId'],
+          },
+        },
+      });
+      const report = await this.db.tPReport.create({
+        data: {
+          details: JSON.parse(data['details']),
+          qrcode: {
+            connect: {
+              id: qrcode.id,
+            },
+          },
+          TPDoctor: {
+            connect: {
+              id: doctor.id,
+            },
+          },
+          TPLifeStock: {
+            connect: {
+              id: lifestock.id,
+            },
+          },
+          doctor_data: (await this.db.tPDoctor.findFirstOrThrow({
+            where: {
+              id: {
+                equals: doctor.id,
+              },
+            },
+          })) as any,
+          qr_code_data: (await this.db.tPQrCode.findFirstOrThrow({
+            where: {
+              id: {
+                equals: qrcode.id,
+              },
+            },
+          })) as any,
+        },
+      });
       this.logger.log(data);
+      return report;
     } catch (error) {
       this.logger.error(error?.message);
     }

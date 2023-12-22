@@ -3,6 +3,7 @@ import { IReports } from './IReports';
 import { LifeStockReportsService } from './life-stock-reports.service';
 import { TPReport } from '@prisma/client';
 import { CreateCheckUpRequestDto } from 'apps/farmer-logic/src/check-up-request/create-check-up-request.dto';
+import { CreateLifeStockReportDto } from './create-life-stock-report.dto';
 
 @Controller('life-stock-reports')
 export class LifeStockReportsController implements IReports {
@@ -13,7 +14,7 @@ export class LifeStockReportsController implements IReports {
   constructor(private readonly lifestockreport: LifeStockReportsService) {}
   @Post('CreateReport')
   async CreateReport(
-    @Query() data: CreateCheckUpRequestDto
+    @Query() data: CreateLifeStockReportDto
   ): Promise<void | TPReport> {
     return this.lifestockreport.CreateReport(data);
   }

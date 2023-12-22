@@ -86,15 +86,17 @@ model TPRequester {
 }
 
 model TPReport {
-  id          String        @id @default(uuid())
-  TPQrCodeId  String
-  details     Json
-  createdAt   DateTime      @default(now())
-  updatedAt   DateTime      @updatedAt()
-  TPDoctorId  String?
-  TPLifeStock TPLifeStock[]
-  TPDoctor    TPDoctor?     @relation(fields: [TPDoctorId], references: [id])
-  qrcode      TPQrCode      @relation(fields: [TPQrCodeId], references: [id])
+  id           String        @id @default(uuid())
+  TPQrCodeId   String
+  qr_code_data Json          @default("{}")
+  details      Json
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt()
+  TPDoctorId   String?
+  doctor_data  Json          @default("{}")
+  TPLifeStock  TPLifeStock[]
+  TPDoctor     TPDoctor?     @relation(fields: [TPDoctorId], references: [id])
+  qrcode       TPQrCode      @relation(fields: [TPQrCodeId], references: [id])
 }
 
 model TPBreed {

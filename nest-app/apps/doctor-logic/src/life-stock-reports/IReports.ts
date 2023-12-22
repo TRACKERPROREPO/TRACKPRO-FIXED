@@ -1,9 +1,10 @@
 import { Logger } from '@nestjs/common';
 import { TPReport } from '@prisma/client';
+import { CreateLifeStockReportDto } from './create-life-stock-report.dto';
 
 export interface IReports {
   logger: Logger;
-  CreateReport(data: Map<String, any>): Promise<TPReport | void>;
+  CreateReport(data: CreateLifeStockReportDto): Promise<TPReport | void>;
   UpdateTPQrCodeId(data: Map<String, any>): Promise<TPReport | void>;
   UpdateTPDoctorId(data: Map<String, any>): Promise<TPReport | void>;
   UpdateTPLifeStock(data: Map<String, any>): Promise<TPReport | void>;

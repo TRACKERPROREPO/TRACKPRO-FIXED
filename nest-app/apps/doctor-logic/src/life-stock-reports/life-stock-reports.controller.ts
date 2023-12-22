@@ -2,6 +2,7 @@ import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { IReports } from './IReports';
 import { LifeStockReportsService } from './life-stock-reports.service';
 import { TPReport } from '@prisma/client';
+import { CreateCheckUpRequestDto } from 'apps/farmer-logic/src/check-up-request/create-check-up-request.dto';
 
 @Controller('life-stock-reports')
 export class LifeStockReportsController implements IReports {
@@ -12,7 +13,7 @@ export class LifeStockReportsController implements IReports {
   constructor(private readonly lifestockreport: LifeStockReportsService) {}
   @Post('CreateReport')
   async CreateReport(
-    @Query() data: Map<String, any>,
+    @Query() data: CreateCheckUpRequestDto
   ): Promise<void | TPReport> {
     return this.lifestockreport.CreateReport(data);
   }

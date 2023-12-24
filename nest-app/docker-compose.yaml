@@ -71,6 +71,48 @@ services:
       MYSQL_PASSWORD: 'npm'
     volumes:
       - ./tpgateway/mysql:/var/lib/mysql
+
+
+  farmer-logic:
+    build:
+      context: .
+      dockerfile: ./apps/farmer-logic/Dockerfile
+      target: development
+    command: npm run start:dev farmer-logic
+    container_name: Tracker-Pro-Farmer-Logic
+    env_file:
+      - ./apps/farmer-logic/.env
+    depends_on:
+      - Tracker-Pro-Db
+      - Tracker-Pro-Gateway
+      - Tracker-Pro-Notifications
+      - Tracker-Pro-Qr-Code-Service
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '3002:3002'
+
+  doctor-logic:
+    build:
+      context: .
+      dockerfile: ./apps/doctor-logic/Dockerfile
+      target: development
+    command: npm run start:dev doctor-logic
+    container_name: Tracker-Pro-Doctor-Logic
+    env_file:
+      - ./apps/doctor-logic/.env
+    depends_on:
+      - Tracker-Pro-Db
+      - Tracker-Pro-Gateway
+      - Tracker-Pro-Notifications
+      - Tracker-Pro-Qr-Code-Service
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '3001:3001'
+
     # Tracker-Pro-Email:
     # image: postgres
     # container_name: Tracker-Pro-Db

@@ -9,7 +9,7 @@ services:
       - POSTGRES_DB=${DB_TABLE}
       - POSTGRES_USER=${DB_USER}
     volumes:
-      - ./tpdatabase/postgresql/data:/var/lib/postrgresql/data
+      - ./tpdatabase/postgresql/data:/var/lib/postgresql/data
     ports:
       - "7007:5432"
     env_file:

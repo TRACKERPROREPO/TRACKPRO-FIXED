@@ -2,14 +2,14 @@ version: '3.8'
 
 services:
   Tracker-Pro-Db:
-    image: postgres
+    image: postgres:latest
     container_name: Tracker-Pro-Db
     environment:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
       - POSTGRES_DB=${DB_TABLE}
       - POSTGRES_USER=${DB_USER}
     volumes:
-      - ./tpdatabase/postgresql/data:/var/lib/postgresql/data
+      - ./tpdatabase/postgresql/data:/var/lib/postgresql/data/
     ports:
       - "7007:5432"
     env_file:
@@ -113,6 +113,8 @@ services:
     ports:
       - '3001:3001'
 
+
+
     # Tracker-Pro-Email:
     # image: postgres
     # container_name: Tracker-Pro-Db
@@ -148,28 +150,4 @@ services:
     #   - "${PORT}:5432"
     # env_file:
     #   - nest-app/apps/admin-logic/.env
-
-    # Tracker-Pro-Doctor:
-    # image: postgres
-    # container_name: Tracker-Pro-Db
-    # environment:
-    #   - POSTGRES_PASSWORD=${DB_PASSWORD}
-    #   - POSTGRES_DB=${DB_TABLE}
-    #   - POSTGRES_USER=${DB_USER}
-    # ports:
-    #   - "${PORT}:5432"
-    # env_file:
-    #   - nest-app/apps/doctor-logic/.env
-
-    # Tracker-Pro-Farmer:
-    # image: postgres
-    # container_name: Tracker-Pro-Db
-    # environment:
-    #   - POSTGRES_PASSWORD=${DB_PASSWORD}
-    #   - POSTGRES_DB=${DB_TABLE}
-    #   - POSTGRES_USER=${DB_USER}
-    # ports:
-    #   - "${PORT}:5432"
-    # env_file:
-    #   - nest-app/apps/farmer-logic/.env
 

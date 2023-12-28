@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { IFarmer } from './IFarmer';
 import { DbService } from '@app/sharedlogic/db/db.service';
 import { CreateFarmerDto } from './create-farmer.dto';
+import { hash } from 'argon2';
 
 @Injectable()
 export class FarmerService implements IFarmer {
@@ -19,6 +20,10 @@ export class FarmerService implements IFarmer {
         data: {
           ...data,
           type: 'Farmer',
+          password: await hash(data['password'], {
+            secret: Buffer.from(process.env.HASH_SECRET),
+            type: 2,
+          }),
         },
       });
       return farmer;

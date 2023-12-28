@@ -3,6 +3,7 @@ import { IDoctor } from './IDoctor';
 import { DbService } from '@app/sharedlogic/db/db.service';
 import { TPDoctor } from '@prisma/client';
 import { CreateDoctorDto } from './create-doctor.dto';
+import { hash } from 'argon2';
 
 @Injectable()
 export class DoctorService implements IDoctor {
@@ -24,7 +25,10 @@ export class DoctorService implements IDoctor {
           first_name: data['first_name'],
           last_name: data['last_name'],
           email: data['email'],
-          password: data['password'],
+          password: await hash(data['password'], {
+            secret: Buffer.from(process.env.HASH_SECRET),
+            type: 2,
+          }),
           number: data['number'],
           type: 'Doctor',
         },

@@ -35,7 +35,7 @@ export class FarmerService implements IFarmer {
   async findByid(data: Map<String, any>) {
     try {
       this.logger.log(data);
-      const farmer = await this.db.tPFarmer.findUniqueOrThrow({
+      const farmer = await this.db.tPFarmer.findFirstOrThrow({
         where: {
           id: data['id'],
         },
@@ -49,7 +49,7 @@ export class FarmerService implements IFarmer {
   async findByfirst_name(data: Map<String, any>) {
     try {
       this.logger.log(data, 'Request');
-      const farmer = await this.db.tPFarmer.findUniqueOrThrow({
+      const farmer = await this.db.tPFarmer.findFirstOrThrow({
         where: {
           id: data['first_name'],
         },
@@ -63,7 +63,7 @@ export class FarmerService implements IFarmer {
   async findBylast_name(data: Map<String, any>) {
     try {
       this.logger.log(data, 'Request');
-      const farmer = await this.db.tPFarmer.findUniqueOrThrow({
+      const farmer = await this.db.tPFarmer.findFirstOrThrow({
         where: {
           id: data['last_name'],
         },
@@ -91,7 +91,7 @@ export class FarmerService implements IFarmer {
   async findBynumber(data: Map<String, any>) {
     try {
       this.logger.log(data, 'Request');
-      const farmer = await this.db.tPFarmer.findUniqueOrThrow({
+      const farmer = await this.db.tPFarmer.findFirstOrThrow({
         where: {
           id: data['number'],
         },
@@ -110,7 +110,7 @@ export class FarmerService implements IFarmer {
           id: data['lifeStockId'],
         },
       });
-      const farmer = await this.db.tPFarmer.findUniqueOrThrow({
+      const farmer = await this.db.tPFarmer.findFirstOrThrow({
         where: {
           id: livestock.tPFarmerId,
         },
@@ -129,7 +129,7 @@ export class FarmerService implements IFarmer {
           id: data['requesterId'],
         },
       });
-      const farmer = await this.db.tPFarmer.findUniqueOrThrow({
+      const farmer = await this.db.tPFarmer.findFirstOrThrow({
         where: {
           id: requester.tPFarmerId,
         },
@@ -148,7 +148,7 @@ export class FarmerService implements IFarmer {
           id: data['transferFromId'],
         },
       });
-      const farmer = await this.db.tPFarmer.findUniqueOrThrow({
+      const farmer = await this.db.tPFarmer.findFirstOrThrow({
         where: {
           id: transferfrom.TPFarmerId,
         },
@@ -167,7 +167,7 @@ export class FarmerService implements IFarmer {
           id: data['transferToId'],
         },
       });
-      const farmer = await this.db.tPFarmer.findUniqueOrThrow({
+      const farmer = await this.db.tPFarmer.findFirstOrThrow({
         where: {
           id: transferfrom.TPFarmerId,
         },

@@ -43,7 +43,7 @@ export class LifestockService implements ILifestock {
       const lifestock = await this.db.tPLifeStock.create({
         data: {
           age: Number.parseInt(data['age']),
-          gender: 'Female',
+          gender: data['gender'] !== '' ? data['gender'] : 'Female',
           status: 'Unvacinated',
           TPFarmer: {
             connect: {
@@ -267,9 +267,7 @@ export class LifestockService implements ILifestock {
     try {
       const lifestock = await this.db.tPLifeStock.findFirstOrThrow({
         where: {
-          type: {
-            id: data['typeId'],
-          },
+          type: data['type'],
         },
       });
       this.logger.log(data);

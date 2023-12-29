@@ -281,7 +281,7 @@ export class CheckUpRequestService implements ICheckUp {
       const request = await this.db.tPRequest.update({
         data: {
           location:
-            data['location']['longitude'] && data['location']['latitude'],
+            data['location'],
         },
         where: {
           id: data['requestId'],

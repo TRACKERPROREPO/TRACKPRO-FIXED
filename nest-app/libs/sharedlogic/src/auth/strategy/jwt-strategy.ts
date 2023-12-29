@@ -1,19 +1,17 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
-import { TPAdmin, TPDoctor, TPFarmer } from '@prisma/client';
-import { AdminService } from 'apps/admin-logic/src/admin/admin.service';
+import { ExtractJwt, Strategy } from 'passport-jwt';
+import { AuthService } from '../auth.service';
+import { AuthPayload } from '../AuthPayload';
 import { DoctorService } from 'apps/doctor-logic/src/doctor/doctor.service';
 import { FarmerService } from 'apps/farmer-logic/src/farmer/farmer.service';
-import { ExtractJwt, Strategy } from 'passport-jwt';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(
     configService: ConfigService,
-    private readonly doctorService: DoctorService,
-    private readonly farmerService: FarmerService,
-    private readonly adminService: AdminService,
+    private readonly auth: AuthService,
   ) {
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
@@ -25,11 +23,15 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload: any) {
-    let user: Promise<TPDoctor | TPFarmer | TPAdmin>;
-    try {
-    } catch (err) {
-      throw new UnauthorizedException();
-    }
+
+  async validate(data: Map<string, any>) {
+    let user = {
+      email: data['email'],
+      password: data['password'],
+      type: data['type'],
+    };
+    const validate = await this.auth.validate(data)
+    return validate
   }
+
 }

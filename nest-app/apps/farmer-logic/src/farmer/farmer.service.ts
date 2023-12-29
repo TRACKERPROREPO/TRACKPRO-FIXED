@@ -77,9 +77,9 @@ export class FarmerService implements IFarmer {
   async findByemail(data: Map<String, any>) {
     try {
       this.logger.log(data, 'Request');
-      const farmer = await this.db.tPFarmer.findUniqueOrThrow({
+      const farmer = await this.db.tPFarmer.findFirst({
         where: {
-          id: data['email'],
+          email: data['email'],
         },
       });
       return farmer;

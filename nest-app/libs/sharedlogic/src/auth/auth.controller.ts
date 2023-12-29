@@ -12,9 +12,7 @@ export class AuthController implements IAuth {
   logger: Logger;
 
   @Post('SignIn')
-  async SignIn(
-    @Query() data: Map<String, any>,
-  ): Promise<void | TPAdmin | TPDoctor | TPFarmer> {
+  async SignIn(@Query() data: Map<String, any>) {
     return this.auth.SignIn(data);
   }
 

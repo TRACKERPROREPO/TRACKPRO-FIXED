@@ -1,11 +1,13 @@
-import { Controller, Logger, Post, Query } from '@nestjs/common';
+import { Controller, Logger, Post, Query, UseGuards } from '@nestjs/common';
 import { IReports } from './IReports';
 import { LifeStockReportsService } from './life-stock-reports.service';
 import { TPReport } from '@prisma/client';
 import { CreateCheckUpRequestDto } from 'apps/farmer-logic/src/check-up-request/create-check-up-request.dto';
 import { CreateLifeStockReportDto } from './create-life-stock-report.dto';
+import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
 
 @Controller('life-stock-reports')
+@UseGuards(AuthGuard)
 export class LifeStockReportsController implements IReports {
   logger: Logger;
   /**

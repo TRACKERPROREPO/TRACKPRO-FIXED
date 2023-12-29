@@ -1,9 +1,12 @@
-import { Controller, Logger, Post, Query } from '@nestjs/common';
+import { Controller, Logger, Post, Query, UseGuards } from '@nestjs/common';
 import { ILifestock } from './ILifestock';
 import { LifestockService } from './lifestock.service';
 import { TPLifeStock } from '@prisma/client';
 import { CreateLifestockDto } from './create-lifestock.dto';
+import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
 
+
+@UseGuards(AuthGuard)
 @Controller('lifestock')
 export class LifestockController implements ILifestock {
   /**

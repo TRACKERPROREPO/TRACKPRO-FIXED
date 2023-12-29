@@ -1,9 +1,11 @@
-import { Controller, Logger, Post, Query } from '@nestjs/common';
+import { Controller, Logger, Post, Query, UseGuards } from '@nestjs/common';
 import { IFarmerRequests } from './IFarmerRequests';
 import { FarmerRequestsService } from './farmer-requests.service';
 import { TPRequest } from '@prisma/client';
+import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
 
 @Controller('farmer-requests')
+@UseGuards(AuthGuard)
 export class FarmerRequestsController implements IFarmerRequests {
   logger: Logger;
   /**

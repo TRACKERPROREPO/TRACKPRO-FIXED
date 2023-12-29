@@ -1,10 +1,12 @@
-import { Controller, Logger, Post, Query } from '@nestjs/common';
+import { Controller, Logger, Post, Query, UseGuards } from '@nestjs/common';
 import { ICheckUp } from './ICheckUp';
 import { CheckUpRequestService } from './check-up-request.service';
 import { TPRequest } from '@prisma/client';
 import { CreateCheckUpRequestDto } from './create-check-up-request.dto';
+import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
 
 @Controller('check-up-request')
+@UseGuards(AuthGuard)
 export class CheckUpRequestController implements ICheckUp {
   /**
    *

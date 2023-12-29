@@ -1,9 +1,11 @@
-import { Controller, Logger, Post, Query } from '@nestjs/common';
+import { Controller, Logger, Post, Query, UseGuards } from '@nestjs/common';
 import { IFarmer } from './IFarmer';
 import { FarmerService } from './farmer.service';
 import { CreateFarmerDto } from './create-farmer.dto';
+import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
 
 @Controller('farmer')
+@UseGuards(AuthGuard)
 export class FarmerController implements IFarmer {
   /**
    *

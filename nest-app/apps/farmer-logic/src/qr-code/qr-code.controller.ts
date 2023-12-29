@@ -1,10 +1,19 @@
-import { Controller, Get, Logger, Post, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Logger,
+  Post,
+  Query,
+  UseGuards,
+} from '@nestjs/common';
 import { IQrcode } from './IQrcode';
 import { QrCodeService } from './qr-code.service';
 import { TPQrCode } from '@prisma/client';
 import { CreateQrcodeDto } from './create-qrcode.dto';
+import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
 
 @Controller('qr-code')
+@UseGuards(AuthGuard)
 export class QrCodeController implements IQrcode {
   /**
    *
@@ -12,9 +21,7 @@ export class QrCodeController implements IQrcode {
   logger: Logger;
   constructor(private readonly qrcode: QrCodeService) {}
   @Post('CreateQrcode')
-  async CreateQrcode(
-    @Query() data: CreateQrcodeDto,
-  ): Promise<void | TPQrCode> {
+  async CreateQrcode(@Query() data: CreateQrcodeDto): Promise<void | TPQrCode> {
     return this.qrcode.CreateQrcode(data);
   }
   @Post('Updateid')

@@ -1,10 +1,12 @@
-import { Controller, Logger, Post, Query } from '@nestjs/common';
+import { Controller, Logger, Post, Query, UseGuards } from '@nestjs/common';
 import { ITransfer } from './ITransfer';
 import { TransferService } from './transfer.service';
 import { TPTranferFrom, TPTransfer, TPTransferTo } from '@prisma/client';
 import { CreateTransferDto } from './create-transfer.dto';
+import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
 
 @Controller('transfer')
+@UseGuards(AuthGuard)
 export class TransferController implements ITransfer {
   /**
    *

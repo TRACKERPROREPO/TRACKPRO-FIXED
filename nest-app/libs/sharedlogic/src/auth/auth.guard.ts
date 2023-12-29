@@ -1,6 +1,6 @@
 import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-import { verify } from 'argon2';
+import { verify } from 'jsonwebtoken';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
@@ -16,33 +16,29 @@ export class AuthGuard
   constructor(private readonly auth: AuthService) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-      secretOrKey: Buffer.from(process.env.HASH_SECRET),
+      secretOrKey: process.env.HASH_SECRET,
+
     });
   }
 
-  canActivate(context: any): boolean | Promise<boolean> | Observable<boolean> {
+  canActivate(
+    context: ExecutionContext,
+  ): boolean | Promise<boolean> | Observable<boolean> {
     try {
-      const HeaderbearerToken = context.args[0]['handshake']['headers'][
+      const HeaderbearerToken = context.switchToHttp().getRequest()['headers'][
         'authorization'
-      ] as String;
-      const decoded = HeaderbearerToken.split(' ')[1];
-      const bearerToken = verify(decoded, process.env.HASH_SECRET);
-      const val = this.validate(bearerToken);
+      ] as string;
+      const bearerToken = verify(HeaderbearerToken, process.env.HASH_SECRET);
+      const val = this.validate(bearerToken as Map<string, any>);
       return Boolean(val);
     } catch (error) {
       console.log(error.message + ',\njwt is missing');
     }
   }
 
-  async validate(bearerToken: any) {
-    const query = {
-      email: bearerToken['email'],
-      password: bearerToken['password'],
-      type: bearerToken['type'],
-    };
-
-    const user = await this.auth.validate(bearerToken)
-    return user
+  async validate(bearerToken: Map<string, any>) {
+    const user = await this.auth.validate(bearerToken);
+    return user;
     /*       bearerToken.staffId !== undefined
         ? await this.staffAuth.validateUser(
             bearerToken.email,

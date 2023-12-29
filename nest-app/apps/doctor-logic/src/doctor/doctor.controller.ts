@@ -1,10 +1,12 @@
-import { Controller, Logger, Post, Query } from '@nestjs/common';
+import { Controller, Logger, Post, Query, UseGuards } from '@nestjs/common';
 import { IDoctor } from './IDoctor';
 import { DoctorService } from './doctor.service';
 import { TPDoctor } from '@prisma/client';
 import { CreateDoctorDto } from './create-doctor.dto';
+import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
 
 @Controller('doctor')
+@UseGuards(AuthGuard)
 export class DoctorController implements IDoctor {
   /**
    *

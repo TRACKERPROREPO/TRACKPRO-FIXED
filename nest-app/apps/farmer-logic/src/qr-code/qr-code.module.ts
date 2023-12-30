@@ -12,8 +12,10 @@ import { CheckUpRequestService } from '../check-up-request/check-up-request.serv
 import { FarmerService } from '../farmer/farmer.service';
 import { LifestockService } from '../lifestock/lifestock.service';
 import { TransferService } from '../transfer/transfer.service';
+import { HttpService, HttpModule } from '@nestjs/axios';
 
 @Module({
+  imports: [HttpModule],
   providers: [
     CheckUpRequestService,
     DbService,

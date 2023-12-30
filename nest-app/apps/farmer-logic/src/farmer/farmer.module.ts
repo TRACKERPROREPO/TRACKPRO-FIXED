@@ -12,6 +12,7 @@ import { QrCodeService } from '../qr-code/qr-code.service';
 import { TransferService } from '../transfer/transfer.service';
 import { LifestockService } from '../lifestock/lifestock.service';
 import { CheckUpRequestService } from '../check-up-request/check-up-request.service';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   controllers: [FarmerController],
@@ -29,5 +30,6 @@ import { CheckUpRequestService } from '../check-up-request/check-up-request.serv
     LifestockService,
     CheckUpRequestService
   ],
+  imports:[HttpModule]
 })
 export class FarmerModule {}

@@ -12,6 +12,7 @@ import { FarmerRequestsService } from 'apps/doctor-logic/src/farmer-requests/far
 import { QrCodeService } from '../qr-code/qr-code.service';
 import { TransferService } from '../transfer/transfer.service';
 import { CheckUpRequestService } from '../check-up-request/check-up-request.service';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   providers: [
@@ -29,5 +30,6 @@ import { CheckUpRequestService } from '../check-up-request/check-up-request.serv
     CheckUpRequestService,
   ],
   controllers: [LifestockController],
+  imports: [HttpModule],
 })
 export class LifestockModule {}

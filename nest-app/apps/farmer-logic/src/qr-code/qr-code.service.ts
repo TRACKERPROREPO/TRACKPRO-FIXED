@@ -3,11 +3,13 @@ import { IQrcode } from './IQrcode';
 import { TPQrCode } from '@prisma/client';
 import { DbService } from '@app/sharedlogic/db/db.service';
 import { CreateQrcodeDto } from './create-qrcode.dto';
+import { HttpService } from '@nestjs/axios';
 
 @Injectable()
 export class QrCodeService implements IQrcode {
   logger: Logger;
-  constructor(private readonly db: DbService) {
+  constructor(private readonly db: DbService,
+    private readonly client:HttpService) {
     this.logger = new Logger('QrCodeService Request', {
       timestamp: true,
     });

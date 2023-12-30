@@ -13,6 +13,7 @@ import { TransferService } from 'apps/farmer-logic/src/transfer/transfer.service
 import { FarmerRequestsService } from '../farmer-requests/farmer-requests.service';
 import { LifeStockReportsService } from '../life-stock-reports/life-stock-reports.service';
 import { ConfigModule } from '@nestjs/config';
+import { HttpModule } from '@nestjs/axios';
 
 @Module({
   providers: [
@@ -36,6 +37,7 @@ import { ConfigModule } from '@nestjs/config';
       isGlobal: true,
       envFilePath: ['apps/doctor-logic/.env'],
     }),
+    HttpModule
   ],
 })
 export class DoctorModule {}

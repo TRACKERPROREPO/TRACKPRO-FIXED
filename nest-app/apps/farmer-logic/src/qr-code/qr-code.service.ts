@@ -8,8 +8,15 @@ import { HttpService } from '@nestjs/axios';
 @Injectable()
 export class QrCodeService implements IQrcode {
   logger: Logger;
+<<<<<<< HEAD
   constructor(private readonly db: DbService,
     private readonly client:HttpService) {
+=======
+  constructor(
+    private readonly db: DbService,
+    private readonly client: HttpService,
+  ) {
+>>>>>>> 5e35ce6 (qr-code beginnings)
     this.logger = new Logger('QrCodeService Request', {
       timestamp: true,
     });
@@ -18,22 +25,31 @@ export class QrCodeService implements IQrcode {
   async CreateQrcode(data: CreateQrcodeDto): Promise<void | TPQrCode> {
     try {
       this.logger.log(data);
-      const qrcode = await this.db.tPQrCode.create({
-        data: {
-          link: '',
-          TPLifeStock: {
-            connect: {
-              id: data['lifestockId'],
-            },
-          },
-          TPReport: {
-            connect: {
-              id: data['reportId'],
-            },
-          },
-        },
-      });
-      return qrcode;
+      const proxy = (await this.client.axiosRef({
+        url: 'http://Tracker-Pro-Qr-Code:8080?data='+data as string,
+        method: 'get',
+      })) as any;
+
+      const thing = proxy['data'] as any
+
+      console.log(proxy);
+
+      // const qrcode = await this.db.tPQrCode.create({
+      //   data: {
+      //     link: '',
+      //     TPLifeStock: {
+      //       connect: {
+      //         id: data['lifestockId'],
+      //       },
+      //     },
+      //     TPReport: {
+      //       connect: {
+      //         id: data['reportId'],
+      //       },
+      //     },
+      //   },
+      // });
+      return thing;
     } catch (error) {
       this.logger.error(error?.message, undefined, 'ERROR');
     }

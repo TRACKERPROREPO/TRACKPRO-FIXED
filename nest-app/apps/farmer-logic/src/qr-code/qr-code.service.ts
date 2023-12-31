@@ -8,15 +8,8 @@ import { HttpService } from '@nestjs/axios';
 @Injectable()
 export class QrCodeService implements IQrcode {
   logger: Logger;
-<<<<<<< HEAD
   constructor(private readonly db: DbService,
     private readonly client:HttpService) {
-=======
-  constructor(
-    private readonly db: DbService,
-    private readonly client: HttpService,
-  ) {
->>>>>>> 5e35ce6 (qr-code beginnings)
     this.logger = new Logger('QrCodeService Request', {
       timestamp: true,
     });

@@ -13,7 +13,7 @@ export class FarmerController implements IFarmer {
   logger: Logger;
   constructor(private readonly farmer: FarmerService) {}
 
-  @Post('CreateFarmer')
+  // @Post('CreateFarmer')
   async CreateFarmer(@Query() data: CreateFarmerDto) {
     return this.farmer.CreateFarmer(data);
   }

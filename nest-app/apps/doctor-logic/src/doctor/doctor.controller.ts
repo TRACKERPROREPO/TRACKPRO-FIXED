@@ -4,16 +4,18 @@ import { DoctorService } from './doctor.service';
 import { TPDoctor } from '@prisma/client';
 import { CreateDoctorDto } from './create-doctor.dto';
 import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
+import { ApiProperty, ApiTags } from '@nestjs/swagger';
 
 @Controller('doctor')
 @UseGuards(AuthGuard)
+@ApiTags('Doctor 🧑🏾‍⚕️ 🐮')
 export class DoctorController implements IDoctor {
   /**
    *
    */
   constructor(private readonly doctor: DoctorService) {}
   logger: Logger;
-  @Post('CreateDoctor')
+  // @Post('CreateDoctor')
   CreateDoctor(@Query() data: CreateDoctorDto) {
     return this.doctor.CreateDoctor(data);
   }

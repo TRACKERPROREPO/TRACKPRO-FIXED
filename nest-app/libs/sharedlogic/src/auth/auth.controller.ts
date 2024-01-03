@@ -2,8 +2,10 @@ import { Controller, Logger, Post, Query } from '@nestjs/common';
 import { IAuth } from './IAuth';
 import { TPAdmin, TPDoctor, TPFarmer } from '@prisma/client';
 import { AuthService } from './auth.service';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('auth')
+@ApiTags('Authentication 🔐')
 export class AuthController implements IAuth {
   /**
    *

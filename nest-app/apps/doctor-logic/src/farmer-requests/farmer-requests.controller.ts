@@ -3,9 +3,11 @@ import { IFarmerRequests } from './IFarmerRequests';
 import { FarmerRequestsService } from './farmer-requests.service';
 import { TPRequest } from '@prisma/client';
 import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('farmer-requests')
 @UseGuards(AuthGuard)
+@ApiTags('Farmer Requests 👨🏽‍🌾 ❓')
 export class FarmerRequestsController implements IFarmerRequests {
   logger: Logger;
   /**

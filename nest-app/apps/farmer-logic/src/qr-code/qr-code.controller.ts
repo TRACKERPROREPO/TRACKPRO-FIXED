@@ -13,7 +13,7 @@ import { CreateQrcodeDto } from './create-qrcode.dto';
 import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
 
 @Controller('qr-code')
-@UseGuards(AuthGuard)
+// @UseGuards(AuthGuard)
 export class QrCodeController implements IQrcode {
   /**
    *

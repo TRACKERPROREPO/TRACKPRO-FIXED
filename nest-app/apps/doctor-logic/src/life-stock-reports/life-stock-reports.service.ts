@@ -3,6 +3,8 @@ import { IReports } from './IReports';
 import { TPReport } from '@prisma/client';
 import { DbService } from '@app/sharedlogic/db/db.service';
 import { CreateLifeStockReportDto } from './create-life-stock-report.dto';
+import { QrCodeService } from 'apps/farmer-logic/src/qr-code/qr-code.service';
+import { CreateQrcodeDto } from 'apps/farmer-logic/src/qr-code/create-qrcode.dto';
 
 @Injectable()
 export class LifeStockReportsService implements IReports {
@@ -10,7 +12,10 @@ export class LifeStockReportsService implements IReports {
   /**
    *
    */
-  constructor(private readonly db: DbService) {
+  constructor(
+    private readonly db: DbService,
+    private readonly qr: QrCodeService,
+  ) {
     this.logger = new Logger('LifeStockReportsService Request', {
       timestamp: true,
     });
@@ -18,61 +23,40 @@ export class LifeStockReportsService implements IReports {
 
   async CreateReport(data: CreateLifeStockReportDto): Promise<void | TPReport> {
     try {
-      // TODO generate link
-      const qrcode = await this.db.tPQrCode.create({
-        data: {
-          link: '',
-        },
-      });
-      const lifestock = await this.db.tPLifeStock.findFirstOrThrow({
+      let qrcode = await this.qr.CreateQrcode(
+        data as unknown as CreateQrcodeDto,
+      );
+      let doctor = await this.db.tPDoctor.findFirstOrThrow({
         where: {
-          id: {
-            equals: data['lifestockId'],
-          },
+          id: data['doctorId'],
         },
       });
-      const doctor = await this.db.tPDoctor.findFirstOrThrow({
+      let lifestock = await this.db.tPLifeStock.findFirstOrThrow({
         where: {
-          id: {
-            equals: data['doctorId'],
-          },
+          id: data['lifestockId'],
         },
       });
-      const report = await this.db.tPReport.create({
+
+      let report = await this.db.tPReport.create({
         data: {
-          details: JSON.parse(data['details']),
-          qrcode: {
-            connect: {
-              id: qrcode.id,
-            },
-          },
+          details: data['details'],
           TPDoctor: {
             connect: {
-              id: doctor.id,
+              id: doctor['id'],
             },
           },
           TPLifeStock: {
             connect: {
-              id: lifestock.id,
+              id: lifestock['id'],
             },
           },
-          doctor_data: (await this.db.tPDoctor.findFirstOrThrow({
-            where: {
-              id: {
-                equals: doctor.id,
-              },
+          qrcode: {
+            connect: {
+              id: qrcode['id'],
             },
-          })) as any,
-          qr_code_data: (await this.db.tPQrCode.findFirstOrThrow({
-            where: {
-              id: {
-                equals: qrcode.id,
-              },
-            },
-          })) as any,
+          },
         },
       });
-      this.logger.log(data);
       return report;
     } catch (error) {
       this.logger.error(error?.message);

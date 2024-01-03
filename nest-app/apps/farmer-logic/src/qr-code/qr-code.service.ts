@@ -8,8 +8,10 @@ import { HttpService } from '@nestjs/axios';
 @Injectable()
 export class QrCodeService implements IQrcode {
   logger: Logger;
-  constructor(private readonly db: DbService,
-    private readonly client:HttpService) {
+  constructor(
+    private readonly db: DbService,
+    private readonly client: HttpService,
+  ) {
     this.logger = new Logger('QrCodeService Request', {
       timestamp: true,
     });
@@ -19,30 +21,21 @@ export class QrCodeService implements IQrcode {
     try {
       this.logger.log(data);
       const proxy = (await this.client.axiosRef({
-        url: 'http://Tracker-Pro-Qr-Code:8080?data='+data as string,
-        method: 'get',
+        url: 'http://Tracker-Pro-Qr-Code:8080',
+        method: 'Get',
+        params: { ...data },
       })) as any;
 
-      const thing = proxy['data'] as any
+      const thing = proxy['data'] as any;
+      this.logger.log(thing);
 
-      console.log(proxy);
-
-      // const qrcode = await this.db.tPQrCode.create({
-      //   data: {
-      //     link: '',
-      //     TPLifeStock: {
-      //       connect: {
-      //         id: data['lifestockId'],
-      //       },
-      //     },
-      //     TPReport: {
-      //       connect: {
-      //         id: data['reportId'],
-      //       },
-      //     },
-      //   },
-      // });
-      return thing;
+      let query = await this.db.tPQrCode.create({
+        data: {
+          data: Buffer.from(thing),
+          link: '',
+        },
+      });
+      return query;
     } catch (error) {
       this.logger.error(error?.message, undefined, 'ERROR');
     }

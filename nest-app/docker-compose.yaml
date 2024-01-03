@@ -28,14 +28,11 @@ services:
     env_file:
       - .env
 
-  
   Tracker-Pro-Qr-Code-Service:
     image: samwierema/go-qr-generator:latest
     container_name: Tracker-Pro-Qr-Code
     ports:
       - "8080:8080"
-
-  
 
   Tracker-Pro-Gateway:
     image: 'jc21/nginx-proxy-manager:latest'
@@ -71,7 +68,6 @@ services:
       MYSQL_PASSWORD: 'npm'
     volumes:
       - ./tpgateway/mysql:/var/lib/mysql
-
 
   farmer-logic:
     build:
@@ -112,9 +108,6 @@ services:
       - /usr/src/app/node_modules
     ports:
       - '3001:3001'
-
-
-
     # Tracker-Pro-Email:
     # image: postgres
     # container_name: Tracker-Pro-Db

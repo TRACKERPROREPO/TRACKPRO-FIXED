@@ -1,9 +1,11 @@
 import {
+  IsEnum,
   IsNotEmpty,
   IsNumber,
   IsString,
   IsUUID,
 } from '@nestjs/class-validator';
+import { TPGender } from '@prisma/client';
 
 export class CreateLifestockDto {
   @IsNotEmpty()
@@ -24,4 +26,8 @@ export class CreateLifestockDto {
   @IsNotEmpty()
   @IsNumber()
   age;
+
+  @IsNotEmpty()
+  @IsEnum(TPGender)
+  gender;
 }

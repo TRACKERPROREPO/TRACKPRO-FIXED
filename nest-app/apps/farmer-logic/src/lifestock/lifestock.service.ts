@@ -2,11 +2,16 @@ import { Injectable, Logger } from '@nestjs/common';
 import { ILifestock } from './ILifestock';
 import { DbService } from '@app/sharedlogic/db/db.service';
 import { CreateLifestockDto } from './create-lifestock.dto';
+import { QrCodeService } from '../qr-code/qr-code.service';
+import { CreateQrcodeDto } from '../qr-code/create-qrcode.dto';
 
 @Injectable()
 export class LifestockService implements ILifestock {
   logger: Logger;
-  constructor(private readonly db: DbService) {
+  constructor(
+    private readonly db: DbService,
+    private readonly qr: QrCodeService,
+  ) {
     this.logger = new Logger('LifestockService Request', {
       timestamp: true,
     });
@@ -14,70 +19,70 @@ export class LifestockService implements ILifestock {
 
   async CreateLifestock(data: CreateLifestockDto) {
     try {
-      const mop = await this.db.tPMethodOfPossesion.create({
+      let farmer = await this.db.tPFarmer.findFirstOrThrow({
+        where: {
+          id: data['farmerId'],
+        },
+      });
+      let mop = await this.db.tPMethodOfPossesion.create({
         data: {
           details: data['details'],
         },
       });
-      // TODO generate link
-      const qrcode = await this.db.tPQrCode.create({
-        data: {
-          link: '',
-        },
-      });
-      const variant = await this.db.tPVariant.create({
+      let variant = await this.db.tPVariant.create({
         data: {
           name: data['variant_name'],
         },
       });
-      const type = await this.db.tPLifeStockType.create({
-        data: {
-          name: data['type'],
-        },
-      });
-      const breed = await this.db.tPBreed.create({
+      let breed = await this.db.tPBreed.create({
         data: {
           name: data['breed'],
         },
       });
-      const lifestock = await this.db.tPLifeStock.create({
+      let type = await this.db.tPLifeStockType.create({
+        data: {
+          name: data['type'],
+        },
+      });
+      let qrcode = await this.qr.CreateQrcode(
+        data as unknown as CreateQrcodeDto,
+      );
+      let lifestock = await this.db.tPLifeStock.create({
         data: {
           age: Number.parseInt(data['age']),
           gender: data['gender'] !== '' ? data['gender'] : 'Female',
-          status: 'Unvacinated',
-          TPFarmer: {
+          breed: {
             connect: {
-              id: data['farmerId'],
+              id: breed['id'],
             },
           },
           type: {
             connect: {
-              id: type.id,
-            },
-          },
-          breed: {
-            connect: {
-              id: breed.id,
-            },
-          },
-          mop: {
-            connect: {
-              id: mop.id,
-            },
-          },
-          qrcode: {
-            connect: {
-              id: qrcode.id,
+              id: type['id'],
             },
           },
           variant: {
             connect: {
-              id: variant.id,
+              id: variant['id'],
+            },
+          },
+          mop: {
+            connect: {
+              id: mop['id'],
+            },
+          },
+          TPFarmer: {
+            connect: {
+              id: farmer['id'],
+            },
+          },
+          qrcode: {
+            connect: {
+              id: qrcode['id'],
             },
           },
         },
       });
-      return lifestock;
     } catch (error) {
       this.logger.error(error?.message);
     }

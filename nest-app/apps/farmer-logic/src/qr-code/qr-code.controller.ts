@@ -11,8 +11,10 @@ import { QrCodeService } from './qr-code.service';
 import { TPQrCode } from '@prisma/client';
 import { CreateQrcodeDto } from './create-qrcode.dto';
 import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('qr-code')
+@ApiTags('qr-code')
 // @UseGuards(AuthGuard)
 export class QrCodeController implements IQrcode {
   /**

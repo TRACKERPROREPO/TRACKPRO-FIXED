@@ -4,8 +4,10 @@ import { TransferService } from './transfer.service';
 import { TPTranferFrom, TPTransfer, TPTransferTo } from '@prisma/client';
 import { CreateTransferDto } from './create-transfer.dto';
 import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('transfer')
+@ApiTags('transfer')
 @UseGuards(AuthGuard)
 export class TransferController implements ITransfer {
   /**

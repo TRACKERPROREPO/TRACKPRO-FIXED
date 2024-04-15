@@ -4,10 +4,12 @@ import { LifestockService } from './lifestock.service';
 import { TPLifeStock } from '@prisma/client';
 import { CreateLifestockDto } from './create-lifestock.dto';
 import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
 
 @UseGuards(AuthGuard)
 @Controller('lifestock')
+@ApiTags('lifestock')
 export class LifestockController implements ILifestock {
   /**
    *

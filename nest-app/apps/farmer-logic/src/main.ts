@@ -7,14 +7,12 @@ async function bootstrap() {
   const app = await NestFactory.create(FarmerLogicModule);
   const config = new DocumentBuilder()
     .setTitle('Farmer Doc')
-    .setDescription('')
     .setVersion('1.0')
-    .addTag('')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(process.env.FARMER_PORT);
+  await app.listen(process.env.FARMER_PORT || 3000);
   const logger: Logger = new Logger('Farmer Logic', {
     timestamp: true,
   });

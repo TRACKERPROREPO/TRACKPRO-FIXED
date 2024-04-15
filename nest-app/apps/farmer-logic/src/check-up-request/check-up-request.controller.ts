@@ -4,8 +4,10 @@ import { CheckUpRequestService } from './check-up-request.service';
 import { TPRequest } from '@prisma/client';
 import { CreateCheckUpRequestDto } from './create-check-up-request.dto';
 import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('check-up-request')
+@ApiTags('check-up-request')
 @UseGuards(AuthGuard)
 export class CheckUpRequestController implements ICheckUp {
   /**

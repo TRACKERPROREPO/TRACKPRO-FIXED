@@ -3,9 +3,11 @@ import { IFarmer } from './IFarmer';
 import { FarmerService } from './farmer.service';
 import { CreateFarmerDto } from './create-farmer.dto';
 import { AuthGuard } from '@app/sharedlogic/auth/auth.guard';
+import { ApiProperty, ApiTags } from '@nestjs/swagger';
 
 @Controller('farmer')
 @UseGuards(AuthGuard)
+@ApiTags('farmer')
 export class FarmerController implements IFarmer {
   /**
    *

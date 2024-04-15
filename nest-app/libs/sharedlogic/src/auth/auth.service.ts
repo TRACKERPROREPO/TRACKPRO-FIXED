@@ -2,7 +2,6 @@ import {
   BadRequestException,
   Injectable,
   Logger,
-  ServiceUnavailableException,
   UnauthorizedException,
 } from '@nestjs/common';
 import { IAuth } from './IAuth';
